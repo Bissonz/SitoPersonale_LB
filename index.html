@@ -1,133 +1,410 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="it">
 <head>
-<title></title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-<link rel="stylesheet" href="Css/stile.css">
-<meta charset="UTF-8">
-<script src="Js/script.js"></script>
+    <title>Il Mio Sito</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="Css/stile.css">
+    <meta charset="UTF-8">
+    <style>
+        /* ==============================
+           NAVBAR CON ICONE
+        ============================== */
+        .banner-links a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .banner-links a i {
+            font-size: 1em;
+        }
 
+        /* ==============================
+           GRID CARD ESPANDIBILI
+        ============================== */
+        .grid-item {
+            position: relative;
+            cursor: pointer;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
 
+        .grid-item .short-text {
+            display: block;
+            font-size: 1.05em;
+            color: #1a2f4d;
+            transition: opacity 0.2s;
+        }
 
+        .grid-item .long-text {
+            display: none;
+            font-size: 1.05em;
+            color: #1a2f4d;
+            margin-top: 8px;
+            line-height: 1.7;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .grid-item.expanded .long-text {
+            display: block;
+        }
+
+        .grid-item.expanded .short-text {
+            display: none;
+        }
+
+        .expand-btn {
+            margin-top: auto;
+            padding-top: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88em;
+            font-weight: 600;
+            color: #2b78ff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding-left: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            transition: color 0.2s;
+        }
+
+        .expand-btn:hover {
+            color: #1a5fd4;
+        }
+
+        .expand-btn i {
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+
+        .grid-item.expanded .expand-btn i {
+            transform: rotate(180deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bottone "Scopri di più" */
+        .discover-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 36px;
+        }
+
+        .discover-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: linear-gradient(180deg, #ffffff99 0%, #cfe4ff99 100%);
+            border: 1px solid #2b78ff;
+            border-radius: 10px;
+            color: #2b78ff;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-weight: 600;
+            font-size: 1em;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(43,120,255,0.10);
+        }
+
+        .discover-button:hover {
+            background: linear-gradient(180deg, #ffffff 0%, #b7d6ff 100%);
+            box-shadow: 0 6px 18px rgba(43,120,255,0.18);
+            transform: translateY(-2px);
+        }
+
+        /* Divisore sezioni */
+        .section-divider {
+            width: 60%;
+            margin: 0 auto;
+            border: none;
+            border-top: 1px solid #b7d6ff;
+            opacity: 0.5;
+        }
+
+        /* ==============================
+           WIDGET FLOTTANTE LATERALE
+        ============================== */
+        .float-nav {
+            position: fixed;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .float-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 10px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(207,228,255,0.85) 100%);
+            border: 1px solid #b7d6ff;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.13);
+            backdrop-filter: blur(6px);
+            text-decoration: none;
+            color: #1a2f4d;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 0.7em;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            min-width: 62px;
+            text-align: center;
+        }
+
+        .float-nav a i {
+            font-size: 20px;
+            color: #2b78ff;
+        }
+
+        .float-nav a:hover {
+            transform: translateX(-4px);
+            box-shadow: 0 8px 20px rgba(43,120,255,0.2);
+            border-color: #2b78ff;
+        }
+
+        .float-nav a.active {
+            border-color: #2b78ff;
+            background: linear-gradient(180deg, #ddeeff 0%, #cfe4ff 100%);
+        }
+
+        /* indicatore punto attivo */
+        .float-nav a::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: transparent;
+            transition: background 0.2s;
+            margin-bottom: -2px;
+        }
+
+        .float-nav a.active::before {
+            background: #2b78ff;
+        }
+
+        /* ==============================
+           WELCOME BOX — 0. rimosso
+        ============================== */
+        .welcome-box {
+            margin-left: 40px;
+        }
+    </style>
 </head>
 <body>
-    <div class="banner">
-    <div class="banner-title">Il Mio Sito</div>
-    <div class="banner-links">
-        <a href="index.html">Home</a>
-        <a href="PresentazioneP.html">Biografia</a>
-        <a href="DescrizionePCTO.html">PCTO</a>
-        <a href="Materie.html">Materie Scolastiche</a>
-        <a href="EduCivica.html">Educazione civica</a>
-        <a href="Certificazioni.html">Certificazioni</a>
 
+    <!-- BANNER / NAV -->
+    <div class="banner">
+        <div class="banner-title">Il Mio Sito</div>
+        <div class="banner-links">
+            <a href="index.html"><i class="ti ti-home"></i> Home</a>
+            <a href="PresentazioneP.html"><i class="ti ti-user"></i> Biografia</a>
+            <a href="DescrizionePCTO.html"><i class="ti ti-building-factory-2"></i> PCTO</a>
+            <a href="Materie.html"><i class="ti ti-book"></i> Materie Scolastiche</a>
+            <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione civica</a>
+            <a href="Certificazioni.html"><i class="ti ti-certificate"></i> Certificazioni</a>
+        </div>
     </div>
-</div>
-    
+
+    <!-- WIDGET FLOTTANTE LATERALE -->
+    <nav class="float-nav" aria-label="Navigazione rapida sezioni">
+        <a href="#sezione-biografia" class="float-link" data-section="sezione-biografia">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            Biografia
+        </a>
+        <a href="#sezione-materie" class="float-link" data-section="sezione-materie">
+            <i class="ti ti-book" aria-hidden="true"></i>
+            Materie
+        </a>
+        <a href="#sezione-pcto" class="float-link" data-section="sezione-pcto">
+            <i class="ti ti-building-factory-2" aria-hidden="true"></i>
+            PCTO
+        </a>
+    </nav>
+
+    <!-- WELCOME BOX -->
     <div class="welcome-box">
         <h2 id="welcome-title">Ciao!</h2>
-        <p>
-            Questo è il mio sito di presentazione, dove puoi scoprire chi sono e le mie competenze.
-        </p>
+        <p>Questo è il mio sito di presentazione, dove puoi scoprire chi sono e le mie competenze.</p>
         <div class="quick-grid">
-  <a href="curriculum.pdf" class="quick-btn" target="_blank">
-    <i class="ti ti-file-cv"></i>
-    <span>Curriculum</span>
-  </a>
-  <a href="fsl.html" class="quick-btn">
-    <i class="ti ti-building-factory-2"></i>
-    <span>FSL</span>
-  </a>
-  <a href="certificazioni.html" class="quick-btn">
-    <i class="ti ti-certificate"></i>
-    <span>Certificazioni</span>
-  </a>
-</div>
+            <a href="curriculum.pdf" class="quick-btn" target="_blank">
+                <i class="ti ti-file-cv"></i>
+                <span>Curriculum</span>
+            </a>
+            <a href="DescrizionePCTO.html" class="quick-btn">
+                <i class="ti ti-building-factory-2"></i>
+                <span>FSL</span>
+            </a>
+            <a href="Certificazioni.html" class="quick-btn">
+                <i class="ti ti-certificate"></i>
+                <span>Certificazioni</span>
+            </a>
+        </div>
     </div>
-    0.
-    <!-- Sezione Biografia -->
-    <section class="content-section">
-        
+
+    <!-- SEZIONE BIOGRAFIA -->
+    <section class="content-section" id="sezione-biografia">
         <h2 class="section-title">Biografia</h2>
         <div class="grid-container">
-            <div class="grid-item square">
+
+            <div class="grid-item">
                 <h3>Chi sono</h3>
-                <p>Breve descrizione di chi sono, delle mie passioni e dei miei interessi principali.</p>
+                <p class="short-text">Breve descrizione di chi sono, delle mie passioni e dei miei interessi principali.</p>
+                <p class="long-text">Sono uno studente appassionato di tecnologia e informatica. Amo esplorare nuovi linguaggi di programmazione, sperimentare progetti creativi e approfondire argomenti che spaziano dallo sviluppo web all'intelligenza artificiale. Nel tempo libero mi piace leggere e stare all'aria aperta.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item rectangle">
+
+            <div class="grid-item">
                 <h3>Il mio percorso</h3>
-                <p>Descrizione del mio percorso formativo e delle esperienze che mi hanno formato.</p>
+                <p class="short-text">Descrizione del mio percorso formativo e delle esperienze che mi hanno formato.</p>
+                <p class="long-text">Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Durante questi anni ho acquisito solide basi in programmazione, reti e sistemi. Ho partecipato a vari progetti scolastici e a esperienze di PCTO che mi hanno dato una visione concreta del mondo del lavoro.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item rectangle">
+
+            <div class="grid-item">
                 <h3>Hobby e Interessi</h3>
-                <p>Le mie attività preferite e come occupo il tempo libero.</p>
+                <p class="short-text">Le mie attività preferite e come occupo il tempo libero.</p>
+                <p class="long-text">Nel tempo libero mi dedico alla programmazione per hobby, alla musica e alle escursioni in natura. Sono appassionato di videogiochi e di cinema. Mi piace anche seguire le ultime novità in ambito tech e leggere articoli su AI e sviluppo software.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item square">
+
+            <div class="grid-item">
                 <h3>Obiettivi</h3>
-                <p>I miei obiettivi futuri e le aspirazioni che voglio raggiungere.</p>
+                <p class="short-text">I miei obiettivi futuri e le aspirazioni che voglio raggiungere.</p>
+                <p class="long-text">Il mio obiettivo è continuare gli studi in ambito informatico, possibilmente in ingegneria del software o intelligenza artificiale. Voglio contribuire a progetti open source e, nel lungo termine, lavorare in un'azienda tech innovativa dove poter crescere professionalmente e creare qualcosa di utile.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
+
         </div>
         <div class="discover-more">
-            <a href="PresentazioneP.html" class="discover-button">Scopri di più</a>
+            <a href="PresentazioneP.html" class="discover-button">
+                <i class="ti ti-arrow-right"></i> Scopri di più
+            </a>
         </div>
     </section>
     <div class="section-divider"></div>
 
-    <!-- Sezione Materie Scolastiche -->
-    <section class="content-section">
+    <!-- SEZIONE MATERIE -->
+    <section class="content-section" id="sezione-materie">
         <h2 class="section-title">Materie Scolastiche</h2>
         <div class="grid-container">
-            <div class="grid-item square">
+
+            <div class="grid-item">
                 <h3>Materie Tecniche</h3>
-                <p>Informatica, Sistemi e Reti, Tecnologie di Progettazione.</p>
+                <p class="short-text">Informatica, Sistemi e Reti, Tecnologie di Progettazione.</p>
+                <p class="long-text">Le materie tecniche sono il cuore del mio percorso: in Informatica programmo in Python, Java e web; in Sistemi e Reti studio protocolli, architetture e sicurezza; in Tecnologie di Progettazione sviluppo progetti hardware e software integrati.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item rectangle">
+
+            <div class="grid-item">
                 <h3>Materie Scientifiche</h3>
-                <p>Matematica, Fisica e le altre discipline scientifiche che studio.</p>
+                <p class="short-text">Matematica, Fisica e le altre discipline scientifiche che studio.</p>
+                <p class="long-text">In Matematica approfondisco analisi, algebra lineare e statistica, fondamentali per l'informatica. La Fisica mi ha dato una comprensione dei principi alla base dell'elettronica e delle telecomunicazioni, completando il quadro tecnico della mia formazione.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item rectangle">
+
+            <div class="grid-item">
                 <h3>Competenze Acquisite</h3>
-                <p>Le competenze chiave sviluppate durante il percorso scolastico.</p>
+                <p class="short-text">Le competenze chiave sviluppate durante il percorso scolastico.</p>
+                <p class="long-text">Ho sviluppato competenze in sviluppo web (HTML, CSS, JavaScript), programmazione orientata agli oggetti, configurazione di reti locali, problem solving e lavoro in team. So usare strumenti come Git, VS Code e ambienti Linux.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item square">
+
+            <div class="grid-item">
                 <h3>Progetti Scolastici</h3>
-                <p>I principali progetti sviluppati durante il percorso di studi.</p>
+                <p class="short-text">I principali progetti sviluppati durante il percorso di studi.</p>
+                <p class="long-text">Ho realizzato un sito web per la gestione di una biblioteca scolastica, un'applicazione desktop per la gestione di inventari e questo stesso sito personale. Ogni progetto mi ha permesso di applicare le conoscenze teoriche in contesti reali e concreti.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
+
         </div>
         <div class="discover-more">
-            <a href="Materie.html" class="discover-button">Scopri di più</a>
+            <a href="Materie.html" class="discover-button">
+                <i class="ti ti-arrow-right"></i> Scopri di più
+            </a>
         </div>
     </section>
     <div class="section-divider"></div>
 
-    <!-- Sezione PCTO -->
-    <section class="content-section">
+    <!-- SEZIONE PCTO -->
+    <section class="content-section" id="sezione-pcto">
         <h2 class="section-title">PCTO</h2>
         <div class="grid-container">
-            <div class="grid-item square">
+
+            <div class="grid-item">
                 <h3>Esperienza in Azienda</h3>
-                <p>Descrizione delle attività svolte durante il PCTO in azienda.</p>
+                <p class="short-text">Descrizione delle attività svolte durante il PCTO in azienda.</p>
+                <p class="long-text">Ho svolto il PCTO presso un'azienda del settore IT, dove ho affiancato il team di sviluppo nella realizzazione di funzionalità per un gestionale interno. Ho imparato a lavorare con metodologie agili e a rispettare scadenze reali in un contesto professionale.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item rectangle">
+
+            <div class="grid-item">
                 <h3>Competenze Sviluppate</h3>
-                <p>Le competenze professionali acquisite durante l'esperienza di PCTO.</p>
+                <p class="short-text">Le competenze professionali acquisite durante l'esperienza di PCTO.</p>
+                <p class="long-text">Durante il PCTO ho rafforzato le mie capacità di comunicazione professionale, imparato a documentare il codice, a fare code review e a collaborare tramite Git in un team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item rectangle">
+
+            <div class="grid-item">
                 <h3>Progetti Realizzati</h3>
-                <p>I progetti specifici su cui ho lavorato durante il PCTO.</p>
+                <p class="short-text">I progetti specifici su cui ho lavorato durante il PCTO.</p>
+                <p class="long-text">Ho contribuito allo sviluppo di un modulo per la reportistica automatizzata e alla migrazione di un database legacy. Ho inoltre partecipato alla progettazione dell'interfaccia di un pannello di amministrazione interno, dalla wireframe al codice finale.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
-            <div class="grid-item square">
+
+            <div class="grid-item">
                 <h3>Riflessioni</h3>
-                <p>Le mie considerazioni sull'esperienza di PCTO e il suo valore formativo.</p>
+                <p class="short-text">Le mie considerazioni sull'esperienza di PCTO e il suo valore formativo.</p>
+                <p class="long-text">Il PCTO è stato un'esperienza fondamentale: mi ha mostrato quanto sia diverso il lavoro reale dalla teoria scolastica. Ho capito l'importanza del team, della comunicazione e della gestione del tempo. È stata la conferma che voglio lavorare nel settore IT.</p>
+                <button class="expand-btn" onclick="toggleCard(this)">
+                    <i class="ti ti-chevron-down"></i> Leggi di più
+                </button>
             </div>
+
         </div>
         <div class="discover-more">
-            <a href="DescrizionePCTO.html" class="discover-button">Scopri di più</a>
+            <a href="DescrizionePCTO.html" class="discover-button">
+                <i class="ti ti-arrow-right"></i> Scopri di più
+            </a>
         </div>
     </section>
     <div class="section-divider"></div>
 
- 
+    <!-- FOOTER -->
     <section class="site-footer">
         <div class="footer-section">
             <h3>Contatti</h3>
@@ -136,7 +413,7 @@
         </div>
         <div class="footer-section">
             <h3>Link Utili</h3>
-            <a href="home.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="PresentazioneP.html">Biografia</a>
             <a href="DescrizionePCTO.html">PCTO</a>
             <a href="Materie.html">Materie Scolastiche</a>
@@ -147,5 +424,7 @@
             <p>Sito creato per presentare il mio percorso scolastico e professionale presso l'Istituto Marconi Pieralisi.</p>
         </div>
     </section>
+
+   
 </body>
 </html>
