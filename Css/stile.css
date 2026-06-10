@@ -13,7 +13,7 @@ body {
 }
 
 /* ============================
-   BANNER STILE WINDOWS 7
+   BANNER / NAVBAR
 ============================ */
 .banner {
     position: fixed;
@@ -46,6 +46,9 @@ body {
 }
 
 .banner-links a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-size: 1.1em;
     color: #ffffff;
     text-decoration: none;
@@ -57,107 +60,46 @@ body {
     transition: 0.2s;
 }
 
+.banner-links a i {
+    font-size: 1em;
+}
+
 .banner-links a:hover {
     background: linear-gradient(180deg, #ffffff55 0%, #ffffff22 100%);
     border-color: rgba(255,255,255,0.6);
 }
 
 /* ============================
-   HOME
+   VIDEO DI SFONDO
 ============================ */
-
-.grid-item {
-    position: relative;
-    cursor: pointer;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-.grid-item .short-text {
-    display: block;
-    font-size: 1.05em;
-    color: #1a2f4d;
-    transition: opacity 0.2s;
-}
-.grid-item .long-text {
-    display: none;
-    font-size: 1.05em;
-    color: #1a2f4d;
-    margin-top: 8px;
-    line-height: 1.7;
-    animation: fadeIn 0.3s ease;
-}
-.grid-item.expanded .long-text { display: block; }
-.grid-item.expanded .short-text { display: none; }
-.expand-btn {
-    margin-top: auto;
-    padding-top: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.88em;
-    font-weight: 600;
-    color: #2b78ff;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding-left: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    transition: color 0.2s;
-}
-.expand-btn:hover { color: #1a5fd4; }
-.expand-btn i { font-size: 1.1em; transition: transform 0.3s; }
-.grid-item.expanded .expand-btn i { transform: rotate(180deg); }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to   { opacity: 1; transform: translateY(0); }
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(0.9);
 }
 
+/* ============================
+   WELCOME BOX
+============================ */
 .welcome-box {
     background: rgba(255,255,255,0.25);
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     backdrop-filter: blur(6px);
     max-width: 700px;
-    margin: 120px auto 200px 0;
+    margin: 120px auto 200px 40px;
     padding: 24px;
     text-align: left;
     color: #0f1f33;
 }
-.discover-more {
-    display: flex;
-    justify-content: center;
-    margin-top: 36px;
-}
-.discover-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    background: linear-gradient(180deg, #ffffff99 0%, #cfe4ff99 100%);
-    border: 1px solid #2b78ff;
-    border-radius: 10px;
-    color: #2b78ff;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-weight: 600;
-    font-size: 1em;
-    text-decoration: none;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    box-shadow: 0 2px 8px rgba(43,120,255,0.10);
-}
-.discover-button:hover {
-    background: linear-gradient(180deg, #ffffff 0%, #b7d6ff 100%);
-    box-shadow: 0 6px 18px rgba(43,120,255,0.18);
-    transform: translateY(-2px);
-}
-.section-divider {
-    width: 60%;
-    margin: 0 auto;
-    border: none;
-    border-top: 1px solid #b7d6ff;
-    opacity: 0.5;
-}
+
 .welcome-box h2 {
     margin-top: 0;
     margin-bottom: 40px;
@@ -171,6 +113,7 @@ body {
     font-size: 1.8em;
     color: #1a2f4d;
 }
+
 /* PULSANTI RAPIDI WELCOME */
 .quick-grid {
     display: grid;
@@ -212,6 +155,10 @@ body {
     color: #1a2f4d;
     text-align: center;
 }
+
+/* ============================
+   WIDGET FLOTTANTE LATERALE
+============================ */
 .float-nav {
     position: fixed;
     right: 18px;
@@ -222,6 +169,7 @@ body {
     flex-direction: column;
     gap: 10px;
 }
+
 .float-nav a {
     display: flex;
     flex-direction: column;
@@ -242,26 +190,37 @@ body {
     min-width: 62px;
     text-align: center;
 }
-.float-nav a i { font-size: 20px; color: #2b78ff; }
+
+.float-nav a i {
+    font-size: 20px;
+    color: #2b78ff;
+}
+
 .float-nav a:hover {
     transform: translateX(-4px);
     box-shadow: 0 8px 20px rgba(43,120,255,0.2);
     border-color: #2b78ff;
 }
+
 .float-nav a.active {
     border-color: #2b78ff;
     background: linear-gradient(180deg, #ddeeff 0%, #cfe4ff 100%);
 }
+
 .float-nav a::before {
     content: '';
     display: block;
-    width: 5px; height: 5px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: transparent;
     transition: background 0.2s;
     margin-bottom: -2px;
 }
-.float-nav a.active::before { background: #2b78ff; }
+
+.float-nav a.active::before {
+    background: #2b78ff;
+}
 
 /* ============================
    SEZIONI CONTENUTO
@@ -282,6 +241,17 @@ body {
     text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
 }
 
+.section-divider {
+    width: 60%;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid #b7d6ff;
+    opacity: 0.5;
+}
+
+/* ============================
+   GRID CARD ESPANDIBILI
+============================ */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -297,9 +267,15 @@ body {
     border-radius: 12px;
     padding: 20px;
     color: #0f1f33;
-    transition: 0.3s;
     border: 1px solid #b7d6ff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: relative;
+    cursor: pointer;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .grid-item:hover {
@@ -318,6 +294,232 @@ body {
 .grid-item p {
     font-size: 1.1em;
     color: #1a2f4d;
+}
+
+.grid-item .short-text {
+    display: block;
+    font-size: 1.05em;
+    color: #1a2f4d;
+    transition: opacity 0.2s;
+}
+
+.grid-item .long-text {
+    display: none;
+    font-size: 1.05em;
+    color: #1a2f4d;
+    margin-top: 8px;
+    line-height: 1.7;
+    animation: fadeIn 0.3s ease;
+}
+
+.grid-item.expanded .long-text { display: block; }
+.grid-item.expanded .short-text { display: none; }
+
+.expand-btn {
+    margin-top: auto;
+    padding-top: 14px;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88em;
+    font-weight: 600;
+    color: #2b78ff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: "Segoe UI", Arial, sans-serif;
+    transition: color 0.2s;
+}
+
+.expand-btn:hover { color: #1a5fd4; }
+.expand-btn i { font-size: 1.1em; transition: transform 0.3s; }
+.grid-item.expanded .expand-btn i { transform: rotate(180deg); }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================
+   BOTTONE SCOPRI DI PIÙ
+============================ */
+.discover-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.discover-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(180deg, #ffffff99 0%, #cfe4ff99 100%);
+    border: 1px solid #2b78ff;
+    border-radius: 10px;
+    color: #2b78ff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(43,120,255,0.10);
+}
+
+.discover-button:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #b7d6ff 100%);
+    box-shadow: 0 6px 18px rgba(43,120,255,0.18);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   BIOGRAFIA UNIFICATA
+============================ */
+.bio-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(231,242,255,0.9) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 28px;
+    align-items: start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bio-left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.bio-photo {
+    width: 140px;
+    height: 170px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #b7d6ff;
+}
+
+.bio-photo-placeholder {
+    width: 140px;
+    height: 170px;
+    border-radius: 12px;
+    border: 2px dashed #b7d6ff;
+    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #5aa0ff;
+}
+
+.bio-photo-placeholder i { font-size: 30px; }
+.bio-photo-placeholder span { font-size: 0.72em; font-weight: 600; text-align: center; }
+
+.bio-acc-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.acc-item {
+    border: 1px solid #b7d6ff;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(231,242,255,0.75) 100%);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.acc-item:hover { box-shadow: 0 3px 10px rgba(43,120,255,0.13); }
+
+.acc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    cursor: pointer;
+    gap: 4px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.acc-header-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.acc-header-left i { color: #2b78ff; font-size: 14px; flex-shrink: 0; }
+.acc-header span { color: #1a2f4d; font-weight: 700; font-size: 0.76em; }
+.acc-arrow { color: #2b78ff; font-size: 12px; transition: transform 0.3s; flex-shrink: 0; }
+.acc-item.open .acc-arrow { transform: rotate(180deg); }
+
+.acc-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.acc-item.open .acc-body { max-height: 200px; }
+
+.acc-body p {
+    margin: 0;
+    padding: 7px 10px 9px;
+    color: #1a2f4d;
+    font-size: 0.78em;
+    line-height: 1.6;
+    border-top: 1px solid #e0edff;
+}
+
+.bio-center {
+    border-left: 2px solid #b7d6ff;
+    padding: 0 0 0 24px;
+}
+
+.bio-center h3 {
+    color: #2b78ff;
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #2b78ff;
+    padding-bottom: 8px;
+}
+
+.bio-center p {
+    color: #1a2f4d;
+    font-size: 0.97em;
+    line-height: 1.75;
+    margin: 0 0 22px 0;
+}
+
+.discover-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(207,228,255,0.8) 100%);
+    border: 1px solid #2b78ff;
+    border-radius: 10px;
+    color: #2b78ff;
+    font-weight: 600;
+    font-size: 0.92em;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.discover-btn:hover {
+    background: linear-gradient(180deg, #fff 0%, #b7d6ff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43,120,255,0.15);
 }
 
 /* ============================
@@ -370,198 +572,3 @@ body {
     color: #2b78ff;
     transform: scale(1.1);
 }
- /* ==============================
-           NAVBAR CON ICONE
-        ============================== */
-        .banner-links a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .banner-links a i {
-            font-size: 1em;
-        }
-
-        /* ==============================
-           GRID CARD ESPANDIBILI
-        ============================== */
-        .grid-item {
-            position: relative;
-            cursor: pointer;
-            min-height: 160px;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-        }
-
-        .grid-item .short-text {
-            display: block;
-            font-size: 1.05em;
-            color: #1a2f4d;
-            transition: opacity 0.2s;
-        }
-
-        .grid-item .long-text {
-            display: none;
-            font-size: 1.05em;
-            color: #1a2f4d;
-            margin-top: 8px;
-            line-height: 1.7;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .grid-item.expanded .long-text {
-            display: block;
-        }
-
-        .grid-item.expanded .short-text {
-            display: none;
-        }
-
-        .expand-btn {
-            margin-top: auto;
-            padding-top: 14px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.88em;
-            font-weight: 600;
-            color: #2b78ff;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding-left: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            transition: color 0.2s;
-        }
-
-        .expand-btn:hover {
-            color: #1a5fd4;
-        }
-
-        .expand-btn i {
-            font-size: 1.1em;
-            transition: transform 0.3s;
-        }
-
-        .grid-item.expanded .expand-btn i {
-            transform: rotate(180deg);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Bottone "Scopri di più" */
-        .discover-more {
-            display: flex;
-            justify-content: center;
-            margin-top: 36px;
-        }
-
-        .discover-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            background: linear-gradient(180deg, #ffffff99 0%, #cfe4ff99 100%);
-            border: 1px solid #2b78ff;
-            border-radius: 10px;
-            color: #2b78ff;
-            font-family: "Segoe UI", Arial, sans-serif;
-            font-weight: 600;
-            font-size: 1em;
-            text-decoration: none;
-            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-            box-shadow: 0 2px 8px rgba(43,120,255,0.10);
-        }
-
-        .discover-button:hover {
-            background: linear-gradient(180deg, #ffffff 0%, #b7d6ff 100%);
-            box-shadow: 0 6px 18px rgba(43,120,255,0.18);
-            transform: translateY(-2px);
-        }
-
-        /* Divisore sezioni */
-        .section-divider {
-            width: 60%;
-            margin: 0 auto;
-            border: none;
-            border-top: 1px solid #b7d6ff;
-            opacity: 0.5;
-        }
-
-        /* ==============================
-           WIDGET FLOTTANTE LATERALE
-        ============================== */
-        .float-nav {
-            position: fixed;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .float-nav a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            padding: 12px 10px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(207,228,255,0.85) 100%);
-            border: 1px solid #b7d6ff;
-            border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.13);
-            backdrop-filter: blur(6px);
-            text-decoration: none;
-            color: #1a2f4d;
-            font-family: "Segoe UI", Arial, sans-serif;
-            font-size: 0.7em;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-            min-width: 62px;
-            text-align: center;
-        }
-
-        .float-nav a i {
-            font-size: 20px;
-            color: #2b78ff;
-        }
-
-        .float-nav a:hover {
-            transform: translateX(-4px);
-            box-shadow: 0 8px 20px rgba(43,120,255,0.2);
-            border-color: #2b78ff;
-        }
-
-        .float-nav a.active {
-            border-color: #2b78ff;
-            background: linear-gradient(180deg, #ddeeff 0%, #cfe4ff 100%);
-        }
-
-        /* indicatore punto attivo */
-        .float-nav a::before {
-            content: '';
-            display: block;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: transparent;
-            transition: background 0.2s;
-            margin-bottom: -2px;
-        }
-
-        .float-nav a.active::before {
-            background: #2b78ff;
-        }
-
-        /* ==============================
-           WELCOME BOX — 0. rimosso
-        ============================== */
-        .welcome-box {
-            margin-left: 40px;
-        }
