@@ -14,10 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Ciao!",
         "你好！"
     ];
-    function toggleAcc(id) {
-    const item = document.getElementById(id);
-    item.classList.toggle('open');
-}
+   
 
     let index = 0;
     const title = document.getElementById('welcome-title');
