@@ -5,9 +5,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link rel="stylesheet" href="Css/stile.css">
     <meta charset="UTF-8">
-    <style>
-       
-    </style>
+    
 </head>
 <body>
 
@@ -63,49 +61,69 @@
     <!-- SEZIONE BIOGRAFIA -->
     <section class="content-section" id="sezione-biografia">
         <h2 class="section-title">Biografia</h2>
-        <div class="grid-container">
 
-            <div class="grid-item">
+        <div class="bio-card">
+
+            <!-- SINISTRA: foto + accordion -->
+            <div class="bio-left-col">
+                <img src="foto.jpg" alt="La mia foto" class="bio-photo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="bio-photo-placeholder" style="display:none;">
+                    <i class="ti ti-user-circle"></i>
+                    <span>La tua foto qui</span>
+                </div>
+
+                <div class="bio-acc-col">
+                    <div class="acc-item" id="acc-percorso">
+                        <button class="acc-header" onclick="toggleAcc('acc-percorso')">
+                            <div class="acc-header-left">
+                                <i class="ti ti-route"></i>
+                                <span>Il mio percorso</span>
+                            </div>
+                            <i class="ti ti-chevron-down acc-arrow"></i>
+                        </button>
+                        <div class="acc-body">
+                            <p>Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Ho acquisito basi solide in programmazione, reti e sistemi, partecipando a progetti scolastici e PCTO.</p>
+                        </div>
+                    </div>
+
+                    <div class="acc-item" id="acc-obiettivi">
+                        <button class="acc-header" onclick="toggleAcc('acc-obiettivi')">
+                            <div class="acc-header-left">
+                                <i class="ti ti-target"></i>
+                                <span>Obiettivi</span>
+                            </div>
+                            <i class="ti ti-chevron-down acc-arrow"></i>
+                        </button>
+                        <div class="acc-body">
+                            <p>Continuare gli studi in ingegneria del software o AI, contribuire a progetti open source e lavorare in un'azienda tech innovativa.</p>
+                        </div>
+                    </div>
+
+                    <div class="acc-item" id="acc-hobby">
+                        <button class="acc-header" onclick="toggleAcc('acc-hobby')">
+                            <div class="acc-header-left">
+                                <i class="ti ti-puzzle"></i>
+                                <span>Hobby e Interessi</span>
+                            </div>
+                            <i class="ti ti-chevron-down acc-arrow"></i>
+                        </button>
+                        <div class="acc-body">
+                            <p>Programmazione per hobby, musica, escursioni in natura, videogiochi e cinema. Seguo le ultime novità in ambito tech e AI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESTRA: chi sono -->
+            <div class="bio-center">
                 <h3>Chi sono</h3>
-                <p class="short-text">Breve descrizione di chi sono, delle mie passioni e dei miei interessi principali.</p>
-                <p class="long-text">Sono uno studente appassionato di tecnologia e informatica. Amo esplorare nuovi linguaggi di programmazione, sperimentare progetti creativi e approfondire argomenti che spaziano dallo sviluppo web all'intelligenza artificiale. Nel tempo libero mi piace leggere e stare all'aria aperta.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
+                <p>Sono uno studente appassionato di tecnologia e informatica. Amo esplorare nuovi linguaggi di programmazione, sperimentare progetti creativi e approfondire argomenti che spaziano dallo sviluppo web all'intelligenza artificiale. Nel tempo libero mi piace leggere, stare all'aria aperta e seguire le ultime novità del mondo tech.</p>
+                <a href="PresentazioneP.html" class="discover-btn">
+                    <i class="ti ti-arrow-right"></i> Scopri di più
+                </a>
             </div>
 
-            <div class="grid-item">
-                <h3>Il mio percorso</h3>
-                <p class="short-text">Descrizione del mio percorso formativo e delle esperienze che mi hanno formato.</p>
-                <p class="long-text">Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Durante questi anni ho acquisito solide basi in programmazione, reti e sistemi. Ho partecipato a vari progetti scolastici e a esperienze di PCTO che mi hanno dato una visione concreta del mondo del lavoro.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
-            </div>
-
-            <div class="grid-item">
-                <h3>Hobby e Interessi</h3>
-                <p class="short-text">Le mie attività preferite e come occupo il tempo libero.</p>
-                <p class="long-text">Nel tempo libero mi dedico alla programmazione per hobby, alla musica e alle escursioni in natura. Sono appassionato di videogiochi e di cinema. Mi piace anche seguire le ultime novità in ambito tech e leggere articoli su AI e sviluppo software.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
-            </div>
-
-            <div class="grid-item">
-                <h3>Obiettivi</h3>
-                <p class="short-text">I miei obiettivi futuri e le aspirazioni che voglio raggiungere.</p>
-                <p class="long-text">Il mio obiettivo è continuare gli studi in ambito informatico, possibilmente in ingegneria del software o intelligenza artificiale. Voglio contribuire a progetti open source e, nel lungo termine, lavorare in un'azienda tech innovativa dove poter crescere professionalmente e creare qualcosa di utile.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
-            </div>
-
-        </div>
-        <div class="discover-more">
-            <a href="PresentazioneP.html" class="discover-button">
-                <i class="ti ti-arrow-right"></i> Scopri di più
-            </a>
         </div>
     </section>
     <div class="section-divider"></div>
@@ -231,6 +249,6 @@
         </div>
     </section>
 
-   
+  
 </body>
 </html>
