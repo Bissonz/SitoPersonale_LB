@@ -668,3 +668,45 @@ body {
     font-size: 0.88em;
     padding: 10px 16px 14px;
 }
+
+/* FSL — pulsanti e pannello unico */
+.fsl-btn-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.fsl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(231,242,255,0.75) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Segoe UI", Arial, sans-serif;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    gap: 8px;
+}
+
+.fsl-btn:hover { box-shadow: 0 3px 10px rgba(43,120,255,0.13); border-color: #2b78ff; }
+.fsl-btn.active { border-color: #2b78ff; background: linear-gradient(180deg, #ddeeff 0%, #cfe4ff 100%); }
+
+.fsl-btn-left { display: flex; align-items: center; gap: 8px; }
+.fsl-btn-left i { color: #2b78ff; font-size: 18px; }
+.fsl-btn span { color: #1a2f4d; font-weight: 700; font-size: 0.92em; }
+.fsl-btn-arrow { color: #2b78ff; font-size: 14px; transition: transform 0.3s; flex-shrink: 0; }
+.fsl-btn.active .fsl-btn-arrow { transform: rotate(180deg); }
+
+.fsl-panel {
+    display: none;
+    padding: 16px 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(231,242,255,0.8) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 10px;
+    animation: fadeIn 0.25s ease;
+}
+
+.fsl-panel.visible { display: block; }
+.fsl-panel p { color: #1a2f4d; font-size: 0.95em; line-height: 1.7; margin: 0; }
