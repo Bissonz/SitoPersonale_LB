@@ -5,152 +5,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link rel="stylesheet" href="Css/stile.css">
-    <style>
-        /* ============================
-           CARD MATERIA CON IMMAGINE
-        ============================ */
-        .materia-card {
-            background: linear-gradient(180deg, #ffffffcc 0%, #e7f2ffcc 100%);
-            border-radius: 14px;
-            border: 1px solid #b7d6ff;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.13);
-            padding: 22px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-
-        .materia-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-        }
-
-        .materia-top {
-            display: grid;
-            grid-template-columns: 1fr 130px;
-            gap: 18px;
-            align-items: start;
-        }
-
-        .materia-top.no-image {
-            grid-template-columns: 1fr;
-        }
-
-        .materia-text h3 {
-            color: #2b78ff;
-            font-size: 1.25em;
-            margin: 0 0 10px 0;
-            border-bottom: 2px solid #2b78ff;
-            padding-bottom: 8px;
-        }
-
-        .materia-text p {
-            color: #1a2f4d;
-            font-size: 0.97em;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        .materia-img {
-            width: 130px;
-            height: 110px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 1.5px solid #b7d6ff;
-            flex-shrink: 0;
-        }
-
-        .materia-img-placeholder {
-            width: 130px;
-            height: 110px;
-            border-radius: 10px;
-            border: 2px dashed #b7d6ff;
-            background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            color: #5aa0ff;
-            flex-shrink: 0;
-        }
-
-        .materia-img-placeholder i { font-size: 26px; }
-        .materia-img-placeholder span { font-size: 0.65em; font-weight: 600; text-align: center; }
-
-        /* ============================
-           ACCORDION ARGOMENTI
-        ============================ */
-        .argomenti-toggle {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            padding: 0;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: "Segoe UI", Arial, sans-serif;
-            font-size: 0.87em;
-            font-weight: 700;
-            color: #2b78ff;
-            transition: color 0.2s;
-        }
-
-        .argomenti-toggle:hover { color: #1a5fd4; }
-        .argomenti-toggle i.arrow { font-size: 1em; transition: transform 0.3s; }
-        .materia-card.open .argomenti-toggle i.arrow { transform: rotate(180deg); }
-
-        .argomenti-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease;
-        }
-
-        .materia-card.open .argomenti-body {
-            max-height: 600px;
-        }
-
-        .argomenti-body ul {
-            margin: 8px 0 0 0;
-            padding: 12px 16px 14px 28px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(207,228,255,0.7) 100%);
-            border: 1px solid #d0e8ff;
-            border-radius: 10px;
-            list-style: none;
-        }
-
-        .argomenti-body ul li {
-            color: #1a2f4d;
-            font-size: 0.93em;
-            line-height: 1.75;
-            padding: 2px 0;
-            position: relative;
-            padding-left: 16px;
-        }
-
-        .argomenti-body ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 11px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #2b78ff;
-        }
-
-        /* ============================
-           GRID MATERIE (colonna singola)
-        ============================ */
-        .materie-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-            max-width: 860px;
-            margin: 0 auto;
-        }
-    </style>
 </head>
 <body>
 
@@ -185,7 +39,6 @@
                         <h3>Informatica</h3>
                         <p>Informatica è la base dell'indirizzo: spiega come comunicare e ragionare con una macchina. Quest'anno è stata particolarmente interessante — abbiamo affrontato argomenti che ci circondano ogni giorno, come lo sviluppo web, le basi di dati e molto altro.</p>
                     </div>
-                    <!-- Sostituisci "img/informatica.jpg" con il percorso reale della tua immagine -->
                     <img src="img/informatica.jpg" alt="Informatica" class="materia-img"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="materia-img-placeholder" style="display:none;">
@@ -529,20 +382,5 @@
     </section>
 
     <script src="Js/script.js"></script>
-    <script>
-        function toggleMateria(id, btn) {
-            const card = document.getElementById(id);
-            const isOpen = card.classList.toggle('open');
-            const label = btn.querySelector('i.ti-list-details');
-            // aggiorna il testo del pulsante mantenendo le icone
-            btn.childNodes.forEach(n => {
-                if (n.nodeType === Node.TEXT_NODE) n.remove?.();
-            });
-            // ricostruisce il testo tra le due icone
-            const textNode = document.createTextNode(isOpen ? ' Nascondi argomenti ' : ' Argomenti svolti ');
-            const arrow = btn.querySelector('i.arrow');
-            btn.insertBefore(textNode, arrow);
-        }
-    </script>
 </body>
 </html>
