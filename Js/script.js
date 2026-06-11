@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==============================
     // WIDGET FLOTTANTE — highlight sezione attiva
     // ==============================
-    const sections = ['sezione-biografia', 'sezione-materie', 'sezione-pcto'];
+    const sections = ['sezione-biografia', 'sezione-materie', 'sezione-fsl'];
     const floatLinks = document.querySelectorAll('.float-link');
 
     function updateActiveLink() {
