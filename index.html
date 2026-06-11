@@ -14,7 +14,6 @@
         <div class="banner-links">
             <a href="index.html"><i class="ti ti-home"></i> Home</a>
             <a href="PresentazioneP.html"><i class="ti ti-user"></i> Biografia</a>
-            <a href="DescrizionePCTO.html"><i class="ti ti-building-factory-2"></i> PCTO</a>
             <a href="Materie.html"><i class="ti ti-book"></i> Materie Scolastiche</a>
             <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione civica</a>
             <a href="Certificazioni.html"><i class="ti ti-certificate"></i> Certificazioni</a>
@@ -31,9 +30,9 @@
             <i class="ti ti-book" aria-hidden="true"></i>
             Materie
         </a>
-        <a href="#sezione-pcto" class="float-link" data-section="sezione-pcto">
+        <a href="#sezione-fsl" class="float-link" data-section="sezione-fsl">
             <i class="ti ti-building-factory-2" aria-hidden="true"></i>
-            PCTO
+            FSL
         </a>
     </nav>
 
@@ -62,7 +61,6 @@
         <h2 class="section-title">Biografia</h2>
         <div class="bio-card">
 
-            <!-- SINISTRA: foto + accordion -->
             <div class="bio-left-col">
                 <img src="foto.jpg" alt="La mia foto" class="bio-photo"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -70,40 +68,28 @@
                     <i class="ti ti-user-circle"></i>
                     <span>La tua foto qui</span>
                 </div>
-
                 <div class="bio-acc-col">
                     <div class="acc-item" id="acc-percorso">
                         <button class="acc-header" onclick="toggleAcc('acc-percorso')">
-                            <div class="acc-header-left">
-                                <i class="ti ti-route"></i>
-                                <span>Il mio percorso</span>
-                            </div>
+                            <div class="acc-header-left"><i class="ti ti-route"></i><span>Il mio percorso</span></div>
                             <i class="ti ti-chevron-down acc-arrow"></i>
                         </button>
                         <div class="acc-body">
                             <p>Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Ho acquisito basi solide in programmazione, reti e sistemi, partecipando a progetti scolastici e PCTO.</p>
                         </div>
                     </div>
-
                     <div class="acc-item" id="acc-obiettivi">
                         <button class="acc-header" onclick="toggleAcc('acc-obiettivi')">
-                            <div class="acc-header-left">
-                                <i class="ti ti-target"></i>
-                                <span>Obiettivi</span>
-                            </div>
+                            <div class="acc-header-left"><i class="ti ti-target"></i><span>Obiettivi</span></div>
                             <i class="ti ti-chevron-down acc-arrow"></i>
                         </button>
                         <div class="acc-body">
                             <p>Continuare gli studi in ingegneria del software o AI, contribuire a progetti open source e lavorare in un'azienda tech innovativa.</p>
                         </div>
                     </div>
-
                     <div class="acc-item" id="acc-hobby">
                         <button class="acc-header" onclick="toggleAcc('acc-hobby')">
-                            <div class="acc-header-left">
-                                <i class="ti ti-puzzle"></i>
-                                <span>Hobby e Interessi</span>
-                            </div>
+                            <div class="acc-header-left"><i class="ti ti-puzzle"></i><span>Hobby e Interessi</span></div>
                             <i class="ti ti-chevron-down acc-arrow"></i>
                         </button>
                         <div class="acc-body">
@@ -113,7 +99,6 @@
                 </div>
             </div>
 
-            <!-- DESTRA: chi sono -->
             <div class="bio-center">
                 <h3>Chi sono</h3>
                 <p>Sono uno studente appassionato di tecnologia e informatica. Amo esplorare nuovi linguaggi di programmazione, sperimentare progetti creativi e approfondire argomenti che spaziano dallo sviluppo web all'intelligenza artificiale. Nel tempo libero mi piace leggere, stare all'aria aperta e seguire le ultime novità del mondo tech.</p>
@@ -130,98 +115,89 @@
     <section class="content-section" id="sezione-materie">
         <h2 class="section-title">Materie Scolastiche</h2>
         <div class="grid-container">
-
             <div class="grid-item">
                 <h3>Materie Tecniche</h3>
                 <p class="short-text">Informatica, Sistemi e Reti, Tecnologie di Progettazione.</p>
                 <p class="long-text">Le materie tecniche sono il cuore del mio percorso: in Informatica programmo in Python, Java e web; in Sistemi e Reti studio protocolli, architetture e sicurezza; in Tecnologie di Progettazione sviluppo progetti hardware e software integrati.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
+                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
             </div>
-
             <div class="grid-item">
                 <h3>Materie Scientifiche</h3>
                 <p class="short-text">Matematica, Fisica e le altre discipline scientifiche che studio.</p>
-                <p class="long-text">In Matematica approfondisco analisi, algebra lineare e statistica, fondamentali per l'informatica. La Fisica mi ha dato una comprensione dei principi alla base dell'elettronica e delle telecomunicazioni, completando il quadro tecnico della mia formazione.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
+                <p class="long-text">In Matematica approfondisco analisi, algebra lineare e statistica, fondamentali per l'informatica. La Fisica mi ha dato una comprensione dei principi alla base dell'elettronica e delle telecomunicazioni.</p>
+                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
             </div>
-
             <div class="grid-item">
                 <h3>Competenze Acquisite</h3>
                 <p class="short-text">Le competenze chiave sviluppate durante il percorso scolastico.</p>
                 <p class="long-text">Ho sviluppato competenze in sviluppo web (HTML, CSS, JavaScript), programmazione orientata agli oggetti, configurazione di reti locali, problem solving e lavoro in team. So usare strumenti come Git, VS Code e ambienti Linux.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
+                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
             </div>
-
             <div class="grid-item">
                 <h3>Progetti Scolastici</h3>
                 <p class="short-text">I principali progetti sviluppati durante il percorso di studi.</p>
-                <p class="long-text">Ho realizzato un sito web per la gestione di una biblioteca scolastica, un'applicazione desktop per la gestione di inventari e questo stesso sito personale. Ogni progetto mi ha permesso di applicare le conoscenze teoriche in contesti reali e concreti.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
+                <p class="long-text">Ho realizzato un sito web per la gestione di una biblioteca scolastica, un'applicazione desktop per la gestione di inventari e questo stesso sito personale. Ogni progetto mi ha permesso di applicare le conoscenze teoriche in contesti reali.</p>
+                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
             </div>
-
         </div>
         <div class="discover-more">
-            <a href="Materie.html" class="discover-button">
-                <i class="ti ti-arrow-right"></i> Scopri di più
-            </a>
+            <a href="Materie.html" class="discover-button"><i class="ti ti-arrow-right"></i> Scopri di più</a>
         </div>
     </section>
     <div class="section-divider"></div>
 
-    <!-- SEZIONE PCTO -->
-    <section class="content-section" id="sezione-pcto">
-        <h2 class="section-title">PCTO</h2>
-        <div class="grid-container">
+    <!-- SEZIONE FSL -->
+    <section class="content-section" id="sezione-fsl">
+        <h2 class="section-title">FSL</h2>
+        <div class="fsl-card">
 
-            <div class="grid-item">
-                <h3>Esperienza in Azienda</h3>
-                <p class="short-text">Descrizione delle attività svolte durante il PCTO in azienda.</p>
-                <p class="long-text">Ho svolto il PCTO presso un'azienda del settore IT, dove ho affiancato il team di sviluppo nella realizzazione di funzionalità per un gestionale interno. Ho imparato a lavorare con metodologie agili e a rispettare scadenze reali in un contesto professionale.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
+            <!-- RIGA TOP: foto + testo affiancati -->
+            <div class="fsl-top-row">
+                <img src="fsl.jpg" alt="Foto azienda" class="fsl-photo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fsl-photo-placeholder" style="display:none;">
+                    <i class="ti ti-photo"></i>
+                    <span>Foto azienda</span>
+                </div>
+                <div class="fsl-text-block">
+                    <h3>Esperienza in Azienda</h3>
+                    <p>Ho svolto il PCTO presso un'azienda del settore IT, dove ho affiancato il team di sviluppo nella realizzazione di funzionalità per un gestionale interno. Ho imparato a lavorare con metodologie agili e a rispettare scadenze reali in un contesto professionale.</p>
+                </div>
             </div>
 
-            <div class="grid-item">
-                <h3>Competenze Sviluppate</h3>
-                <p class="short-text">Le competenze professionali acquisite durante l'esperienza di PCTO.</p>
-                <p class="long-text">Durante il PCTO ho rafforzato le mie capacità di comunicazione professionale, imparato a documentare il codice, a fare code review e a collaborare tramite Git in un team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
+            <hr class="fsl-divider">
+
+            <!-- RIGA BOTTOM: 3 accordion grandi -->
+            <div class="fsl-acc-row">
+                <div class="acc-item" id="acc-fsl-competenze">
+                    <button class="acc-header" onclick="toggleAcc('acc-fsl-competenze')">
+                        <div class="acc-header-left"><i class="ti ti-brain"></i><span>Competenze</span></div>
+                        <i class="ti ti-chevron-down acc-arrow"></i>
+                    </button>
+                    <div class="acc-body">
+                        <p>Ho rafforzato comunicazione professionale, documentazione del codice, code review e collaborazione tramite Git in team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.</p>
+                    </div>
+                </div>
+                <div class="acc-item" id="acc-fsl-progetti">
+                    <button class="acc-header" onclick="toggleAcc('acc-fsl-progetti')">
+                        <div class="acc-header-left"><i class="ti ti-code"></i><span>Progetti</span></div>
+                        <i class="ti ti-chevron-down acc-arrow"></i>
+                    </button>
+                    <div class="acc-body">
+                        <p>Ho sviluppato un modulo per la reportistica automatizzata e partecipato alla progettazione di un pannello di amministrazione interno, dalla wireframe al codice finale.</p>
+                    </div>
+                </div>
+                <div class="acc-item" id="acc-fsl-riflessioni">
+                    <button class="acc-header" onclick="toggleAcc('acc-fsl-riflessioni')">
+                        <div class="acc-header-left"><i class="ti ti-messages"></i><span>Riflessioni</span></div>
+                        <i class="ti ti-chevron-down acc-arrow"></i>
+                    </button>
+                    <div class="acc-body">
+                        <p>Il PCTO mi ha mostrato quanto sia diverso il lavoro reale dalla teoria scolastica. Ho capito l'importanza del team e della comunicazione. È stata la conferma che voglio lavorare nel settore IT.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid-item">
-                <h3>Progetti Realizzati</h3>
-                <p class="short-text">I progetti specifici su cui ho lavorato durante il PCTO.</p>
-                <p class="long-text">Ho contribuito allo sviluppo di un modulo per la reportistica automatizzata e alla migrazione di un database legacy. Ho inoltre partecipato alla progettazione dell'interfaccia di un pannello di amministrazione interno, dalla wireframe al codice finale.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
-            </div>
-
-            <div class="grid-item">
-                <h3>Riflessioni</h3>
-                <p class="short-text">Le mie considerazioni sull'esperienza di PCTO e il suo valore formativo.</p>
-                <p class="long-text">Il PCTO è stato un'esperienza fondamentale: mi ha mostrato quanto sia diverso il lavoro reale dalla teoria scolastica. Ho capito l'importanza del team, della comunicazione e della gestione del tempo. È stata la conferma che voglio lavorare nel settore IT.</p>
-                <button class="expand-btn" onclick="toggleCard(this)">
-                    <i class="ti ti-chevron-down"></i> Leggi di più
-                </button>
-            </div>
-
-        </div>
-        <div class="discover-more">
-            <a href="DescrizionePCTO.html" class="discover-button">
-                <i class="ti ti-arrow-right"></i> Scopri di più
-            </a>
         </div>
     </section>
     <div class="section-divider"></div>
@@ -237,9 +213,9 @@
             <h3>Link Utili</h3>
             <a href="index.html">Home</a>
             <a href="PresentazioneP.html">Biografia</a>
-            <a href="DescrizionePCTO.html">PCTO</a>
             <a href="Materie.html">Materie Scolastiche</a>
             <a href="EduCivica.html">Educazione Civica</a>
+            <a href="Certificazioni.html">Certificazioni</a>
         </div>
         <div class="footer-section">
             <h3>Informazioni</h3>
