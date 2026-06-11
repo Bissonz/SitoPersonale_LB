@@ -88,3 +88,33 @@ function toggleCard(btn) {
         ? '<i class="ti ti-chevron-down"></i> Mostra meno'
         : '<i class="ti ti-chevron-down"></i> Leggi di più';
 }
+
+// ==============================
+// FSL — pannello unico
+// ==============================
+const fslContents = {
+    competenze: "Ho rafforzato comunicazione professionale, documentazione del codice, code review e collaborazione tramite Git in un team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.",
+    progetti: "Ho sviluppato un modulo per la reportistica automatizzata e partecipato alla progettazione di un pannello di amministrazione interno, dalla wireframe al codice finale.",
+    riflessioni: "Il PCTO mi ha mostrato quanto sia diverso il lavoro reale dalla teoria scolastica. Ho capito l'importanza del team e della comunicazione. È stata la conferma che voglio lavorare nel settore IT."
+};
+
+let currentFsl = null;
+
+function openFslPanel(key, btn) {
+    const panel = document.getElementById('fsl-panel');
+    const text = document.getElementById('fsl-panel-text');
+    const allBtns = document.querySelectorAll('.fsl-btn');
+
+    if (currentFsl === key) {
+        panel.classList.remove('visible');
+        btn.classList.remove('active');
+        currentFsl = null;
+        return;
+    }
+
+    allBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    text.textContent = fslContents[key];
+    panel.classList.add('visible');
+    currentFsl = key;
+}
