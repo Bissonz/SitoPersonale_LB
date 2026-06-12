@@ -29,6 +29,7 @@ body {
     z-index: 10;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     border-bottom: 1px solid #b7d6ff;
+    box-sizing: border-box;
 }
 
 .banner-title {
@@ -60,9 +61,7 @@ body {
     transition: 0.2s;
 }
 
-.banner-links a i {
-    font-size: 1em;
-}
+.banner-links a i { font-size: 1em; }
 
 .banner-links a:hover {
     background: linear-gradient(180deg, #ffffff55 0%, #ffffff22 100%);
@@ -74,12 +73,9 @@ body {
 ============================ */
 #bg-video {
     position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    min-width: 100vw; min-height: 100vh;
+    width: 100vw; height: 100vh;
     z-index: -1;
     object-fit: cover;
     filter: brightness(0.9);
@@ -114,6 +110,11 @@ body {
     color: #1a2f4d;
 }
 
+.welcome-fade {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
 /* PULSANTI RAPIDI WELCOME */
 .quick-grid {
     display: grid;
@@ -146,15 +147,8 @@ body {
     border-color: #2b78ff;
 }
 
-.quick-btn i {
-    font-size: 28px;
-    color: #2b78ff;
-}
-
-.quick-btn span {
-    color: #1a2f4d;
-    text-align: center;
-}
+.quick-btn i { font-size: 28px; color: #2b78ff; }
+.quick-btn span { color: #1a2f4d; text-align: center; }
 
 /* ============================
    WIDGET FLOTTANTE LATERALE
@@ -191,10 +185,7 @@ body {
     text-align: center;
 }
 
-.float-nav a i {
-    font-size: 20px;
-    color: #2b78ff;
-}
+.float-nav a i { font-size: 20px; color: #2b78ff; }
 
 .float-nav a:hover {
     transform: translateX(-4px);
@@ -210,17 +201,14 @@ body {
 .float-nav a::before {
     content: '';
     display: block;
-    width: 5px;
-    height: 5px;
+    width: 5px; height: 5px;
     border-radius: 50%;
     background: transparent;
     transition: background 0.2s;
     margin-bottom: -2px;
 }
 
-.float-nav a.active::before {
-    background: #2b78ff;
-}
+.float-nav a.active::before { background: #2b78ff; }
 
 /* ============================
    SEZIONI CONTENUTO
@@ -291,10 +279,7 @@ body {
     padding-bottom: 10px;
 }
 
-.grid-item p {
-    font-size: 1.1em;
-    color: #1a2f4d;
-}
+.grid-item p { font-size: 1.1em; color: #1a2f4d; }
 
 .grid-item .short-text {
     display: block;
@@ -374,209 +359,6 @@ body {
 }
 
 /* ============================
-   CARD STILE AERO
-============================ */
-.card {
-    background: linear-gradient(180deg, #ffffffcc 0%, #e7f2ffcc 100%);
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    border: 1px solid #b7d6ff;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.card:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}
-
-.card .description {
-    background: linear-gradient(180deg, #ffffff 0%, #d7eaff 100%);
-    color: #0f1f33;
-    border-radius: 12px;
-}
-
-/* ============================
-   FOOTER
-============================ */
-.site-footer {
-    width: 100%;
-    background: linear-gradient(90deg, #2b78ff 0%, #5aa0ff 40%, #8cc6ff 100%);
-    color: #fff;
-    padding: 32px 0 24px 0;
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    flex-wrap: wrap;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin-top: auto;
-    border-top: 1px solid #b7d6ff;
-}
-
-.site-footer a:hover {
-    color: #d7eaff;
-}
-
-/* ============================
-   PDF ICONS
-============================ */
-.certification-files i:hover {
-    color: #2b78ff;
-    transform: scale(1.1);
-}
-
-/* ============================
-   SEZIONE FSL
-============================ */
-.fsl-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(231,242,255,0.9) 100%);
-    border: 1px solid #b7d6ff;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.fsl-top-row {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 24px;
-    align-items: start;
-}
-
-.fsl-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 2px solid #b7d6ff;
-}
-
-.fsl-photo-placeholder {
-    width: 150px;
-    height: 150px;
-    border-radius: 12px;
-    border: 2px dashed #b7d6ff;
-    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: #5aa0ff;
-}
-
-.fsl-photo-placeholder i { font-size: 28px; }
-.fsl-photo-placeholder span { font-size: 0.7em; font-weight: 600; text-align: center; }
-
-.fsl-text-block h3 {
-    color: #2b78ff;
-    font-size: 1.15em;
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid #2b78ff;
-    padding-bottom: 8px;
-}
-
-.fsl-text-block p {
-    color: #1a2f4d;
-    font-size: 0.97em;
-    line-height: 1.75;
-    margin: 0;
-}
-
-.fsl-divider {
-    border: none;
-    border-top: 1px solid #b7d6ff;
-    margin: 0;
-}
-
-.fsl-acc-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.fsl-acc-row .acc-header {
-    padding: 14px 16px;
-}
-
-.fsl-acc-row .acc-header-left i {
-    font-size: 18px;
-}
-
-.fsl-acc-row .acc-header span {
-    font-size: 0.92em;
-}
-
-.fsl-acc-row .acc-arrow {
-    font-size: 14px;
-}
-
-.fsl-acc-row .acc-body p {
-    font-size: 0.88em;
-    padding: 10px 16px 14px;
-}
-
-/* FSL — pulsanti e pannello unico */
-.fsl-btn-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.fsl-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(231,242,255,0.75) 100%);
-    border: 1px solid #b7d6ff;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: "Segoe UI", Arial, sans-serif;
-    transition: box-shadow 0.2s, border-color 0.2s;
-    gap: 8px;
-}
-
-.fsl-btn:hover { box-shadow: 0 3px 10px rgba(43,120,255,0.13); border-color: #2b78ff; }
-.fsl-btn.active { border-color: #2b78ff; background: linear-gradient(180deg, #ddeeff 0%, #cfe4ff 100%); }
-
-.fsl-btn-left { display: flex; align-items: center; gap: 8px; }
-.fsl-btn-left i { color: #2b78ff; font-size: 18px; }
-.fsl-btn span { color: #1a2f4d; font-weight: 700; font-size: 0.92em; }
-.fsl-btn-arrow { color: #2b78ff; font-size: 14px; transition: transform 0.3s; flex-shrink: 0; }
-.fsl-btn.active .fsl-btn-arrow { transform: rotate(180deg); }
-
-.fsl-panel {
-    display: none;
-    padding: 16px 20px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(231,242,255,0.8) 100%);
-    border: 1px solid #b7d6ff;
-    border-radius: 10px;
-    animation: fadeIn 0.25s ease;
-}
-
-.fsl-panel.visible { display: block; }
-.fsl-panel p { color: #1a2f4d; font-size: 0.95em; line-height: 1.7; margin: 0; }
-
-
-
-.bio-top-row {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 28px;
-    align-items: start;
-}
-
-/* Riga pulsanti biografia — piena larghezza come FSL */
-.bio-btn-row {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-/* ============================
    BIOGRAFIA
 ============================ */
 .bio-card {
@@ -635,4 +417,297 @@ body {
     font-size: 0.97em;
     line-height: 1.75;
     margin: 0 0 22px 0;
+}
+
+.discover-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(207,228,255,0.8) 100%);
+    border: 1px solid #2b78ff;
+    border-radius: 10px;
+    color: #2b78ff;
+    font-weight: 600;
+    font-size: 0.92em;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.discover-btn:hover {
+    background: linear-gradient(180deg, #fff 0%, #b7d6ff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43,120,255,0.15);
+}
+
+/* ============================
+   FSL / PCTO
+============================ */
+.fsl-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(231,242,255,0.9) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.fsl-top-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.fsl-photo {
+    width: 150px; height: 150px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #b7d6ff;
+}
+
+.fsl-photo-placeholder {
+    width: 150px; height: 150px;
+    border-radius: 12px;
+    border: 2px dashed #b7d6ff;
+    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; color: #5aa0ff;
+}
+
+.fsl-photo-placeholder i { font-size: 28px; }
+.fsl-photo-placeholder span { font-size: 0.7em; font-weight: 600; text-align: center; }
+
+.fsl-text-block h3 {
+    color: #2b78ff; font-size: 1.15em;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #2b78ff;
+    padding-bottom: 8px;
+}
+
+.fsl-text-block p { color: #1a2f4d; font-size: 0.97em; line-height: 1.75; margin: 0; }
+
+.fsl-divider { border: none; border-top: 1px solid #b7d6ff; margin: 0; }
+
+/* Pulsanti e pannello unico FSL/Biografia */
+.fsl-btn-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.fsl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(231,242,255,0.75) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Segoe UI", Arial, sans-serif;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    gap: 8px;
+}
+
+.fsl-btn:hover { box-shadow: 0 3px 10px rgba(43,120,255,0.13); border-color: #2b78ff; }
+.fsl-btn.active { border-color: #2b78ff; background: linear-gradient(180deg, #ddeeff 0%, #cfe4ff 100%); }
+
+.fsl-btn-left { display: flex; align-items: center; gap: 8px; }
+.fsl-btn-left i { color: #2b78ff; font-size: 18px; }
+.fsl-btn span { color: #1a2f4d; font-weight: 700; font-size: 0.92em; }
+.fsl-btn-arrow { color: #2b78ff; font-size: 14px; transition: transform 0.3s; flex-shrink: 0; }
+.fsl-btn.active .fsl-btn-arrow { transform: rotate(180deg); }
+
+.fsl-panel {
+    display: none;
+    padding: 16px 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(231,242,255,0.8) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 10px;
+    animation: fadeIn 0.25s ease;
+}
+
+.fsl-panel.visible { display: block; }
+.fsl-panel p { color: #1a2f4d; font-size: 0.95em; line-height: 1.7; margin: 0; }
+
+/* ============================
+   CARD STILE AERO
+============================ */
+.card {
+    background: linear-gradient(180deg, #ffffffcc 0%, #e7f2ffcc 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border: 1px solid #b7d6ff;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.card .description {
+    background: linear-gradient(180deg, #ffffff 0%, #d7eaff 100%);
+    color: #0f1f33;
+    border-radius: 12px;
+}
+
+/* ============================
+   PAGINA MATERIE
+============================ */
+.materie-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.mat-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(231,242,255,0.9) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    max-width: 860px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.mat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.mat-main {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 20px;
+    align-items: start;
+}
+
+.mat-text h3 {
+    color: #2b78ff;
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #2b78ff;
+    padding-bottom: 8px;
+}
+
+.mat-text p { color: #1a2f4d; font-size: 0.97em; line-height: 1.7; margin: 0 0 14px 0; }
+
+.mat-img {
+    width: 140px; height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1.5px solid #b7d6ff;
+}
+
+.mat-img-col { display: flex; flex-direction: column; align-items: center; }
+
+.mat-img-placeholder {
+    width: 140px; height: 120px;
+    border-radius: 10px;
+    border: 2px dashed #b7d6ff;
+    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 6px; color: #5aa0ff;
+}
+
+.mat-img-placeholder i { font-size: 26px; }
+.mat-img-placeholder span { font-size: 0.65em; font-weight: 600; text-align: center; }
+
+.mat-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.87em;
+    font-weight: 700;
+    color: #2b78ff;
+    transition: color 0.2s;
+}
+
+.mat-expand-btn:hover { color: #1a5fd4; }
+.mat-expand-btn i { font-size: 1em; transition: transform 0.3s; }
+.mat-card.mat-open .mat-expand-btn i { transform: rotate(180deg); }
+
+.mat-topics {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.mat-card.mat-open .mat-topics { max-height: 600px; }
+
+.mat-topics ul {
+    margin: 0;
+    padding: 12px 16px 14px 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(207,228,255,0.7) 100%);
+    border: 1px solid #d0e8ff;
+    border-radius: 10px;
+    list-style: none;
+}
+
+.mat-topics ul li {
+    color: #1a2f4d;
+    font-size: 0.93em;
+    line-height: 1.75;
+    padding: 2px 0 2px 16px;
+    position: relative;
+}
+
+.mat-topics ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 11px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #2b78ff;
+}
+
+/* ============================
+   FOOTER
+============================ */
+.site-footer {
+    width: 100%;
+    background: linear-gradient(90deg, #2b78ff 0%, #5aa0ff 40%, #8cc6ff 100%);
+    color: #fff;
+    padding: 32px 0 24px 0;
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin-top: auto;
+    border-top: 1px solid #b7d6ff;
+    box-sizing: border-box;
+}
+
+.site-footer h3 { margin: 0 0 10px 0; font-size: 1em; letter-spacing: 0.5px; }
+.site-footer p { margin: 4px 0; font-size: 0.9em; opacity: 0.9; }
+.site-footer a {
+    display: block; color: #fff; text-decoration: none;
+    font-size: 0.9em; margin: 3px 0; opacity: 0.9; transition: opacity 0.2s;
+}
+.site-footer a:hover { opacity: 1; color: #d7eaff; }
+
+/* ============================
+   PDF ICONS
+============================ */
+.certification-files i:hover {
+    color: #2b78ff;
+    transform: scale(1.1);
 }
