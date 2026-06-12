@@ -29,7 +29,6 @@ body {
     z-index: 10;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     border-bottom: 1px solid #b7d6ff;
-    box-sizing: border-box;
 }
 
 .banner-title {
@@ -113,12 +112,6 @@ body {
 .welcome-box p {
     font-size: 1.8em;
     color: #1a2f4d;
-}
-
-/* Animazione fade titolo welcome */
-.welcome-fade {
-    opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
 /* PULSANTI RAPIDI WELCOME */
@@ -566,33 +559,9 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin-top: auto;
     border-top: 1px solid #b7d6ff;
-    box-sizing: border-box;
-}
-
-.site-footer h3 {
-    margin: 0 0 10px 0;
-    font-size: 1em;
-    letter-spacing: 0.5px;
-}
-
-.site-footer p {
-    margin: 4px 0;
-    font-size: 0.9em;
-    opacity: 0.9;
-}
-
-.site-footer a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9em;
-    margin: 3px 0;
-    opacity: 0.9;
-    transition: opacity 0.2s;
 }
 
 .site-footer a:hover {
-    opacity: 1;
     color: #d7eaff;
 }
 
@@ -679,11 +648,26 @@ body {
     gap: 12px;
 }
 
-.fsl-acc-row .acc-header { padding: 14px 16px; }
-.fsl-acc-row .acc-header-left i { font-size: 18px; }
-.fsl-acc-row .acc-header span { font-size: 0.92em; }
-.fsl-acc-row .acc-arrow { font-size: 14px; }
-.fsl-acc-row .acc-body p { font-size: 0.88em; padding: 10px 16px 14px; }
+.fsl-acc-row .acc-header {
+    padding: 14px 16px;
+}
+
+.fsl-acc-row .acc-header-left i {
+    font-size: 18px;
+}
+
+.fsl-acc-row .acc-header span {
+    font-size: 0.92em;
+}
+
+.fsl-acc-row .acc-arrow {
+    font-size: 14px;
+}
+
+.fsl-acc-row .acc-body p {
+    font-size: 0.88em;
+    padding: 10px 16px 14px;
+}
 
 /* FSL — pulsanti e pannello unico */
 .fsl-btn-row {
@@ -727,143 +711,14 @@ body {
 .fsl-panel.visible { display: block; }
 .fsl-panel p { color: #1a2f4d; font-size: 0.95em; line-height: 1.7; margin: 0; }
 
-/* ============================
-   CARD MATERIA CON IMMAGINE
-   (usata in Materie.html)
-============================ */
-.materia-card {
-    background: linear-gradient(180deg, #ffffffcc 0%, #e7f2ffcc 100%);
-    border-radius: 14px;
-    border: 1px solid #b7d6ff;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.13);
-    padding: 22px 24px;
+/* BIOGRAFIA — pulsanti stile FSL */
+.bio-btn-col {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    transition: transform 0.25s, box-shadow 0.25s;
+    gap: 8px;
 }
 
-.materia-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
-}
-
-.materia-top {
-    display: grid;
-    grid-template-columns: 1fr 130px;
-    gap: 18px;
-    align-items: start;
-}
-
-.materia-top.no-image {
-    grid-template-columns: 1fr;
-}
-
-.materia-text h3 {
-    color: #2b78ff;
-    font-size: 1.25em;
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid #2b78ff;
-    padding-bottom: 8px;
-}
-
-.materia-text p {
-    color: #1a2f4d;
-    font-size: 0.97em;
-    line-height: 1.7;
-    margin: 0;
-}
-
-.materia-img {
-    width: 130px;
-    height: 110px;
-    border-radius: 10px;
-    object-fit: cover;
-    border: 1.5px solid #b7d6ff;
-    flex-shrink: 0;
-}
-
-.materia-img-placeholder {
-    width: 130px;
-    height: 110px;
-    border-radius: 10px;
-    border: 2px dashed #b7d6ff;
-    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    color: #5aa0ff;
-    flex-shrink: 0;
-}
-
-.materia-img-placeholder i { font-size: 26px; }
-.materia-img-placeholder span { font-size: 0.65em; font-weight: 600; text-align: center; }
-
-/* Accordion argomenti (Materie.html) */
-.argomenti-toggle {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 0.87em;
-    font-weight: 700;
-    color: #2b78ff;
-    transition: color 0.2s;
-}
-
-.argomenti-toggle:hover { color: #1a5fd4; }
-.argomenti-toggle i.arrow { font-size: 1em; transition: transform 0.3s; }
-.materia-card.open .argomenti-toggle i.arrow { transform: rotate(180deg); }
-
-.argomenti-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-}
-
-.materia-card.open .argomenti-body {
-    max-height: 600px;
-}
-
-.argomenti-body ul {
-    margin: 8px 0 0 0;
-    padding: 12px 16px 14px 28px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(207,228,255,0.7) 100%);
-    border: 1px solid #d0e8ff;
-    border-radius: 10px;
-    list-style: none;
-}
-
-.argomenti-body ul li {
-    color: #1a2f4d;
-    font-size: 0.93em;
-    line-height: 1.75;
-    padding: 2px 0 2px 16px;
-    position: relative;
-}
-
-.argomenti-body ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 11px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #2b78ff;
-}
-
-/* Grid materie (colonna singola) */
-.materie-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    max-width: 860px;
-    margin: 0 auto;
+.bio-btn-col .fsl-btn {
+    width: 100%;
 }
