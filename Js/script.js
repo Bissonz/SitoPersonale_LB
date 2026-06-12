@@ -21,16 +21,17 @@ document.addEventListener('DOMContentLoaded', function () {
     let index = 0;
     const title = document.getElementById('welcome-title');
 
-    function changeTitle() {
-        title.classList.add('welcome-fade');
-        setTimeout(() => {
-            index = (index + 1) % messages.length;
-            title.textContent = messages[index];
-            title.classList.remove('welcome-fade');
-        }, 600);
+    if (title) {
+        function changeTitle() {
+            title.classList.add('welcome-fade');
+            setTimeout(() => {
+                index = (index + 1) % messages.length;
+                title.textContent = messages[index];
+                title.classList.remove('welcome-fade');
+            }, 500);
+        }
+        setInterval(changeTitle, 2500);
     }
-
-    setInterval(changeTitle, 2500);
 
     // ==============================
     // WIDGET FLOTTANTE — highlight sezione attiva
@@ -54,24 +55,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    window.addEventListener('scroll', updateActiveLink, { passive: true });
-    updateActiveLink();
+    if (floatLinks.length > 0) {
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        updateActiveLink();
 
-    // Scroll fluido per i link del widget
-    floatLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.getElementById(link.dataset.section);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+        floatLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.getElementById(link.dataset.section);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
-    });
+    }
 
 });
 
 // ==============================
-// ACCORDION BIOGRAFIA
+// ACCORDION BIOGRAFIA (vecchio stile, se ancora usato)
 // ==============================
 function toggleAcc(id) {
     const item = document.getElementById(id);
@@ -79,7 +81,7 @@ function toggleAcc(id) {
 }
 
 // ==============================
-// EXPAND / COLLAPSE CARD (Materie e PCTO)
+// EXPAND / COLLAPSE CARD (index.html — sezione materie home e PCTO)
 // ==============================
 function toggleCard(btn) {
     const card = btn.closest('.grid-item');
@@ -147,4 +149,22 @@ function openBioPanel(key, btn) {
     text.textContent = bioContents[key];
     panel.classList.add('visible');
     currentBio = key;
+}
+
+// ==============================
+// MATERIE — accordion argomenti (Materie.html, classi .mat-*)
+// ==============================
+function toggleMatCard(id, btn) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.toggle('mat-open');
+
+    // Rimuove i nodi di testo esistenti tra le icone
+    Array.from(btn.childNodes).forEach(n => {
+        if (n.nodeType === Node.TEXT_NODE) n.remove();
+    });
+
+    // Reinserisce il testo corretto prima della freccia
+    const arrow = btn.querySelector('i.arrow');
+    const textNode = document.createTextNode(isOpen ? ' Nascondi argomenti ' : ' Argomenti svolti ');
+    btn.insertBefore(textNode, arrow);
 }
