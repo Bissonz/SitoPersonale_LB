@@ -68,34 +68,22 @@
                     <i class="ti ti-user-circle"></i>
                     <span>La tua foto qui</span>
                 </div>
-                <div class="bio-acc-col">
-                    <div class="acc-item" id="acc-percorso">
-                        <button class="acc-header" onclick="toggleAcc('acc-percorso')">
-                            <div class="acc-header-left"><i class="ti ti-route"></i><span>Il mio percorso</span></div>
-                            <i class="ti ti-chevron-down acc-arrow"></i>
-                        </button>
-                        <div class="acc-body">
-                            <p>Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Ho acquisito basi solide in programmazione, reti e sistemi, partecipando a progetti scolastici e PCTO.</p>
-                        </div>
-                    </div>
-                    <div class="acc-item" id="acc-obiettivi">
-                        <button class="acc-header" onclick="toggleAcc('acc-obiettivi')">
-                            <div class="acc-header-left"><i class="ti ti-target"></i><span>Obiettivi</span></div>
-                            <i class="ti ti-chevron-down acc-arrow"></i>
-                        </button>
-                        <div class="acc-body">
-                            <p>Continuare gli studi in ingegneria del software o AI, contribuire a progetti open source e lavorare in un'azienda tech innovativa.</p>
-                        </div>
-                    </div>
-                    <div class="acc-item" id="acc-hobby">
-                        <button class="acc-header" onclick="toggleAcc('acc-hobby')">
-                            <div class="acc-header-left"><i class="ti ti-puzzle"></i><span>Hobby e Interessi</span></div>
-                            <i class="ti ti-chevron-down acc-arrow"></i>
-                        </button>
-                        <div class="acc-body">
-                            <p>Programmazione per hobby, musica, escursioni in natura, videogiochi e cinema. Seguo le ultime novità in ambito tech e AI.</p>
-                        </div>
-                    </div>
+                <div class="bio-btn-col">
+                    <button class="fsl-btn" onclick="openBioPanel('percorso', this)">
+                        <div class="fsl-btn-left"><i class="ti ti-route"></i><span>Il mio percorso</span></div>
+                        <i class="ti ti-chevron-down fsl-btn-arrow"></i>
+                    </button>
+                    <button class="fsl-btn" onclick="openBioPanel('obiettivi', this)">
+                        <div class="fsl-btn-left"><i class="ti ti-target"></i><span>Obiettivi</span></div>
+                        <i class="ti ti-chevron-down fsl-btn-arrow"></i>
+                    </button>
+                    <button class="fsl-btn" onclick="openBioPanel('hobby', this)">
+                        <div class="fsl-btn-left"><i class="ti ti-puzzle"></i><span>Hobby e Interessi</span></div>
+                        <i class="ti ti-chevron-down fsl-btn-arrow"></i>
+                    </button>
+                </div>
+                <div class="fsl-panel" id="bio-panel">
+                    <p id="bio-panel-text"></p>
                 </div>
             </div>
 
