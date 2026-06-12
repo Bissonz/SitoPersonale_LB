@@ -61,9 +61,11 @@
         <h2 class="section-title">Biografia</h2>
         <div class="bio-card">
 
-            <!-- RIGA TOP: foto + testo -->
-            <div class="bio-top-row">
-                <div class="bio-left-col">
+            <!-- RIGA TOP: foto + testo affiancati -->
+            <div style="display:grid; grid-template-columns:180px 1fr; gap:28px; align-items:start;">
+
+                <!-- FOTO -->
+                <div style="display:flex; flex-direction:column; align-items:center;">
                     <img src="foto.jpg" alt="La mia foto" class="bio-photo"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="bio-photo-placeholder" style="display:none;">
@@ -71,6 +73,8 @@
                         <span>La tua foto qui</span>
                     </div>
                 </div>
+
+                <!-- TESTO CHI SONO -->
                 <div class="bio-center">
                     <h3>Chi sono</h3>
                     <p>Sono uno studente appassionato di tecnologia e informatica. Amo esplorare nuovi linguaggi di programmazione, sperimentare progetti creativi e approfondire argomenti che spaziano dallo sviluppo web all'intelligenza artificiale. Nel tempo libero mi piace leggere, stare all'aria aperta e seguire le ultime novità del mondo tech.</p>
@@ -78,12 +82,13 @@
                         <i class="ti ti-arrow-right"></i> Scopri di più
                     </a>
                 </div>
+
             </div>
 
-            <hr class="fsl-divider" style="margin: 0 -28px;">
+            <hr class="fsl-divider">
 
-            <!-- 3 PULSANTI ORIZZONTALI stile FSL -->
-            <div class="fsl-btn-row bio-btn-row">
+            <!-- 3 PULSANTI ORIZZONTALI -->
+            <div class="fsl-btn-row">
                 <button class="fsl-btn" onclick="openBioPanel('percorso', this)">
                     <div class="fsl-btn-left"><i class="ti ti-route"></i><span>Il mio percorso</span></div>
                     <i class="ti ti-chevron-down fsl-btn-arrow"></i>
@@ -110,32 +115,82 @@
     <!-- SEZIONE MATERIE -->
     <section class="content-section" id="sezione-materie">
         <h2 class="section-title">Materie Scolastiche</h2>
-        <div class="grid-container">
-            <div class="grid-item">
-                <h3>Materie Tecniche</h3>
-                <p class="short-text">Informatica, Sistemi e Reti, Tecnologie di Progettazione.</p>
-                <p class="long-text">Le materie tecniche sono il cuore del mio percorso: in Informatica programmo in Python, Java e web; in Sistemi e Reti studio protocolli, architetture e sicurezza; in Tecnologie di Progettazione sviluppo progetti hardware e software integrati.</p>
-                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
-            </div>
-            <div class="grid-item">
-                <h3>Materie Scientifiche</h3>
-                <p class="short-text">Matematica, Fisica e le altre discipline scientifiche che studio.</p>
-                <p class="long-text">In Matematica approfondisco analisi, algebra lineare e statistica, fondamentali per l'informatica. La Fisica mi ha dato una comprensione dei principi alla base dell'elettronica e delle telecomunicazioni.</p>
-                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
-            </div>
-            <div class="grid-item">
-                <h3>Competenze Acquisite</h3>
-                <p class="short-text">Le competenze chiave sviluppate durante il percorso scolastico.</p>
-                <p class="long-text">Ho sviluppato competenze in sviluppo web (HTML, CSS, JavaScript), programmazione orientata agli oggetti, configurazione di reti locali, problem solving e lavoro in team. So usare strumenti come Git, VS Code e ambienti Linux.</p>
-                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
-            </div>
-            <div class="grid-item">
-                <h3>Progetti Scolastici</h3>
-                <p class="short-text">I principali progetti sviluppati durante il percorso di studi.</p>
-                <p class="long-text">Ho realizzato un sito web per la gestione di una biblioteca scolastica, un'applicazione desktop per la gestione di inventari e questo stesso sito personale. Ogni progetto mi ha permesso di applicare le conoscenze teoriche in contesti reali.</p>
-                <button class="expand-btn" onclick="toggleCard(this)"><i class="ti ti-chevron-down"></i> Leggi di più</button>
-            </div>
+
+        <!-- PROFESSIONALI -->
+        <p class="mat-group-label">Materie Professionali</p>
+        <div class="mat-icon-grid">
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap"><i class="ti ti-device-laptop" aria-hidden="true"></i></div>
+                <h4>Informatica</h4>
+                <p>Sviluppo web, database, linguaggi di programmazione</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap"><i class="ti ti-network" aria-hidden="true"></i></div>
+                <h4>Sistemi e Reti</h4>
+                <p>Protocolli, architetture, sicurezza</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap"><i class="ti ti-antenna" aria-hidden="true"></i></div>
+                <h4>Telecomunicazioni</h4>
+                <p>Circuiti, segnali e trasmissione dati</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap"><i class="ti ti-robot" aria-hidden="true"></i></div>
+                <h4>Intelligenza Artificiale</h4>
+                <p>Machine learning, reti neurali, addestramento</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap"><i class="ti ti-code" aria-hidden="true"></i></div>
+                <h4>TPSIT</h4>
+                <p>Multithread, processi, sincronizzazione</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap"><i class="ti ti-briefcase" aria-hidden="true"></i></div>
+                <h4>GPOI</h4>
+                <p>Gestione progetti e organizzazione aziendale</p>
+            </a>
         </div>
+
+        <!-- UMANISTICHE -->
+        <p class="mat-group-label">Materie Umanistiche</p>
+        <div class="mat-icon-grid">
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap" style="background:#e8f5e9;"><i class="ti ti-book" aria-hidden="true" style="color:#2e7d32;"></i></div>
+                <h4>Italiano</h4>
+                <p>Letteratura moderna e correnti letterarie</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap" style="background:#e8f5e9;"><i class="ti ti-world" aria-hidden="true" style="color:#2e7d32;"></i></div>
+                <h4>Storia</h4>
+                <p>Dal Risorgimento alla Guerra Fredda</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap" style="background:#e8f5e9;"><i class="ti ti-language" aria-hidden="true" style="color:#2e7d32;"></i></div>
+                <h4>Inglese</h4>
+                <p>Lingua tecnica e comunicazione professionale</p>
+            </a>
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap" style="background:#e8f5e9;"><i class="ti ti-math" aria-hidden="true" style="color:#2e7d32;"></i></div>
+                <h4>Matematica</h4>
+                <p>Analisi, algebra lineare e statistica</p>
+            </a>
+        </div>
+
+        <!-- PROGETTI / ED. CIVICA -->
+        <p class="mat-group-label">Progetti ed Educazione Civica</p>
+        <div class="mat-icon-grid">
+            <a href="Materie.html" class="mat-icon-card">
+                <div class="mat-icon-wrap" style="background:#fff3e0;"><i class="ti ti-tools" aria-hidden="true" style="color:#e65100;"></i></div>
+                <h4>Progetti Scolastici</h4>
+                <p>Siti web, applicazioni desktop, questo sito</p>
+            </a>
+            <a href="EduCivica.html" class="mat-icon-card">
+                <div class="mat-icon-wrap" style="background:#fff3e0;"><i class="ti ti-scale" aria-hidden="true" style="color:#e65100;"></i></div>
+                <h4>Educazione Civica</h4>
+                <p>Diritti, doveri e cittadinanza digitale</p>
+            </a>
+        </div>
+
         <div class="discover-more">
             <a href="Materie.html" class="discover-button"><i class="ti ti-arrow-right"></i> Scopri di più</a>
         </div>
