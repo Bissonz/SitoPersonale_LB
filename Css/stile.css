@@ -642,7 +642,7 @@ body {
 
 .mat-expand-btn:hover { color: #1a5fd4; }
 .mat-expand-btn i { font-size: 1em; transition: transform 0.3s; }
-.mat-card.mat-open .mat-expand-btn i { transform: rotate(180deg); }
+.mat-card.mat-open .mat-expand-btn i.arrow { transform: rotate(180deg); }
 
 .mat-topics {
     max-height: 0;
