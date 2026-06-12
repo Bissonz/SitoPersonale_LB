@@ -722,3 +722,22 @@ body {
 .bio-btn-col .fsl-btn {
     width: 100%;
 }
+
+/* BIOGRAFIA — layout aggiornato con pulsanti sotto */
+.bio-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+}
+
+.bio-top-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* Riga pulsanti biografia — piena larghezza come FSL */
+.bio-btn-row {
+    grid-template-columns: repeat(3, 1fr);
+}
