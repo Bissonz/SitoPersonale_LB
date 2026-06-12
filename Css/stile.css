@@ -711,3 +711,72 @@ body {
     color: #2b78ff;
     transform: scale(1.1);
 }
+
+/* ============================
+   SEZIONE MATERIE — griglia icone
+============================ */
+.mat-group-label {
+    font-size: 0.85em;
+    font-weight: 700;
+    color: #1a3d7c;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 28px 0 12px 4px;
+    padding-left: 10px;
+    border-left: 3px solid #2b78ff;
+}
+
+.mat-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mat-icon-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 12px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.mat-icon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(43,120,255,0.15);
+    border-color: #2b78ff;
+}
+
+.mat-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #e7f2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mat-icon-wrap i { font-size: 20px; color: #2b78ff; }
+
+.mat-icon-card h4 {
+    color: #0f1f33;
+    font-size: 0.95em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.mat-icon-card p {
+    color: #1a2f4d;
+    font-size: 0.8em;
+    margin: 0;
+    line-height: 1.5;
+    opacity: 0.8;
+}
