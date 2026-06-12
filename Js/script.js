@@ -21,17 +21,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let index = 0;
     const title = document.getElementById('welcome-title');
 
-    if (title) {
-        function changeTitle() {
-            title.classList.add('welcome-fade');
-            setTimeout(() => {
-                index = (index + 1) % messages.length;
-                title.textContent = messages[index];
-                title.classList.remove('welcome-fade');
-            }, 500);
-        }
-        setInterval(changeTitle, 2500);
+    function changeTitle() {
+        title.classList.add('welcome-fade');
+        setTimeout(() => {
+            index = (index + 1) % messages.length;
+            title.textContent = messages[index];
+            title.classList.remove('welcome-fade');
+        }, 600);
     }
+
+    setInterval(changeTitle, 2500);
 
     // ==============================
     // WIDGET FLOTTANTE — highlight sezione attiva
@@ -55,20 +54,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (floatLinks.length > 0) {
-        window.addEventListener('scroll', updateActiveLink, { passive: true });
-        updateActiveLink();
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
 
-        floatLinks.forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.getElementById(link.dataset.section);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+    // Scroll fluido per i link del widget
+    floatLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.getElementById(link.dataset.section);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
-    }
+    });
 
 });
 
@@ -81,7 +79,7 @@ function toggleAcc(id) {
 }
 
 // ==============================
-// EXPAND / COLLAPSE CARD (index.html — sezione materie e PCTO)
+// EXPAND / COLLAPSE CARD (Materie e PCTO)
 // ==============================
 function toggleCard(btn) {
     const card = btn.closest('.grid-item');
@@ -92,7 +90,7 @@ function toggleCard(btn) {
 }
 
 // ==============================
-// FSL — pannello unico (index.html)
+// FSL — pannello unico
 // ==============================
 const fslContents = {
     competenze: "Ho rafforzato comunicazione professionale, documentazione del codice, code review e collaborazione tramite Git in un team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.",
@@ -122,19 +120,31 @@ function openFslPanel(key, btn) {
 }
 
 // ==============================
-// MATERIE — accordion argomenti (Materie.html)
+// BIOGRAFIA — pannello unico stile FSL
 // ==============================
-function toggleMateria(id, btn) {
-    const card = document.getElementById(id);
-    const isOpen = card.classList.toggle('open');
+const bioContents = {
+    percorso: "Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Ho acquisito basi solide in programmazione, reti e sistemi, partecipando a progetti scolastici e PCTO.",
+    obiettivi: "Continuare gli studi in ingegneria del software o AI, contribuire a progetti open source e lavorare in un'azienda tech innovativa dove crescere professionalmente.",
+    hobby: "Programmazione per hobby, musica, escursioni in natura, videogiochi e cinema. Seguo le ultime novità in ambito tech e AI."
+};
 
-    // Rimuove i nodi di testo esistenti tra le icone
-    Array.from(btn.childNodes).forEach(n => {
-        if (n.nodeType === Node.TEXT_NODE) n.remove();
-    });
+let currentBio = null;
 
-    // Reinserisce il testo corretto prima della freccia
-    const arrow = btn.querySelector('i.arrow');
-    const textNode = document.createTextNode(isOpen ? ' Nascondi argomenti ' : ' Argomenti svolti ');
-    btn.insertBefore(textNode, arrow);
+function openBioPanel(key, btn) {
+    const panel = document.getElementById('bio-panel');
+    const text = document.getElementById('bio-panel-text');
+    const allBtns = document.querySelectorAll('.bio-btn-col .fsl-btn');
+
+    if (currentBio === key) {
+        panel.classList.remove('visible');
+        btn.classList.remove('active');
+        currentBio = null;
+        return;
+    }
+
+    allBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    text.textContent = bioContents[key];
+    panel.classList.add('visible');
+    currentBio = key;
 }
