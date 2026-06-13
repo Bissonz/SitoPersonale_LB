@@ -803,11 +803,11 @@ body {
 }
 
 .rect {
-    background: rgba(255,255,255,0.22);
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(183,214,255,0.4);
+    border: 1px solid #b7d6ff;
     border-radius: 18px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
     padding: 32px;
     display: flex;
     align-items: center;
@@ -817,7 +817,7 @@ body {
 
 .rect:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
 }
 
 .rettangolo-right { flex-direction: row; }
@@ -828,27 +828,27 @@ body {
     height: 200px;
     object-fit: cover;
     border-radius: 14px;
-    border: 2px solid rgba(183,214,255,0.5);
+    border: 2px solid #b7d6ff;
     flex-shrink: 0;
 }
 
 .rect-text { flex: 1; }
 
 .rect-text h2 {
-    color: #ffffff;
+    color: #2b78ff;
     font-size: 1.6em;
     font-weight: 700;
     margin: 0 0 14px 0;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    text-shadow: none;
     text-transform: capitalize;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
+    border-bottom: 2px solid #2b78ff;
     padding-bottom: 10px;
 }
 
 .rect-text p {
-    color: rgba(255,255,255,0.92);
+    color: #1a2f4d;
     font-size: 0.97em;
     line-height: 1.75;
     margin: 0;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    text-shadow: none;
 }
