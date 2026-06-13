@@ -864,3 +864,128 @@ body {
     line-height: 1.6;
     opacity: 0.85;
 }
+/* ============================
+   CERTIFICAZIONI
+============================ */
+.cert-group-desc {
+    color: #1a2f4d;
+    font-size: 0.88em;
+    margin: -16px 0 16px 4px;
+    opacity: 0.7;
+}
+ 
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+ 
+.cert-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(231,242,255,0.95) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+ 
+.cert-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(43,120,255,0.15);
+    border-color: #2b78ff;
+}
+ 
+.cert-placeholder {
+    border-style: dashed;
+    opacity: 0.6;
+}
+ 
+.cert-placeholder:hover {
+    opacity: 0.9;
+}
+ 
+.cert-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.cert-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #e7f2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.cert-icon-wrap i { font-size: 22px; color: #2b78ff; }
+ 
+.cert-badge {
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+ 
+.cert-badge.scolastica {
+    background: #e7f2ff;
+    color: #2b78ff;
+}
+ 
+.cert-badge.extra {
+    background: #fff3e0;
+    color: #e65100;
+}
+ 
+.cert-card h4 {
+    color: #0f1f33;
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0;
+}
+ 
+.cert-card p {
+    color: #1a2f4d;
+    font-size: 0.83em;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+ 
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    padding: 8px 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(207,228,255,0.8) 100%);
+    border: 1px solid #2b78ff;
+    border-radius: 8px;
+    color: #2b78ff;
+    font-size: 0.82em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    align-self: flex-start;
+}
+ 
+.cert-link:hover {
+    background: linear-gradient(180deg, #fff 0%, #b7d6ff 100%);
+    transform: translateY(-1px);
+}
+ 
+.cert-link.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    border-color: #b7d6ff;
+    color: #5aa0ff;
+}
+ 
