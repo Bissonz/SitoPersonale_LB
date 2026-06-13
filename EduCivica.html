@@ -1,157 +1,189 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="it">
 <head>
-<title></title>
-<link rel="stylesheet" href="Css/stile.css">
-<meta charset="UTF-8">
-<script src="Js/script.js"></script>
-
-
-
+    <title>Educazione Civica — Il Mio Sito</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="Css/stile.css">
 </head>
 <body>
+
+    <!-- BANNER / NAV -->
     <div class="banner">
-    <div class="banner-title">Il Mio Sito</div>
-    <div class="banner-links">
-        <a href="index.html">Home</a>
-        <a href="PresentazioneP.html">Biografia</a>
-        <a href="DescrizionePCTO.html">PCTO</a>
-          <a href="Materie.html">Materie Scolastiche</a>
-        <a href="EduCivica.html">Educazione civica</a>
-        <a href="Certificazioni.html">Certificazioni</a>
-        
+        <div class="banner-title">Il Mio Sito</div>
+        <div class="banner-links">
+            <a href="index.html"><i class="ti ti-home"></i> Home</a>
+            <a href="PresentazioneP.html"><i class="ti ti-user"></i> Biografia</a>
+            <a href="Materie.html"><i class="ti ti-book"></i> Materie Scolastiche</a>
+            <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione civica</a>
+            <a href="Certificazioni.html"><i class="ti ti-certificate"></i> Certificazioni</a>
+        </div>
     </div>
-</div>
+
+    <!-- VIDEO SFONDO -->
     <video autoplay muted loop id="bg-video">
         <source src="../Immagini/default.mp4" type="video/mp4">
-        Il tuo browser non supporta il video.
     </video>
+
+    <!-- WELCOME BOX -->
     <div class="welcome-box">
-        <h2 >Educazione Civica</h2>
-        <p>
-            Questi sono gli argomenti che ho fatto in quest 3 anni, divisi per materia in cui è stata affrontata
-        </p>
+        <h2>Educazione Civica</h2>
+        <p>Argomenti affrontati in questi 3 anni, divisi per materia.</p>
     </div>
-    
- 
 
-
+    <!-- CONTENUTO -->
     <section class="content-section">
-        <h2 class="section-title">Religione (4 ore)</h2>
-        <div class="grid-container">
-            <div class="grid-item square">
-                <h3>il tema della pace</h3>
-                <p>il tema della pace secondo giustizia e l'equa ripartizione delle risorse nelle dichiarazioni degli organismi internazionai e nei principali documenti dell'UE</p>
+
+        <!-- RELIGIONE -->
+        <p class="mat-group-label">Religione — 4 ore</p>
+        <div class="mat-icon-grid">
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e8eaf6;">
+                    <i class="ti ti-globe" aria-hidden="true" style="color:#3949ab;"></i>
+                </div>
+                <h4>Il tema della pace</h4>
+                <p>La pace secondo giustizia e l'equa ripartizione delle risorse nelle dichiarazioni degli organismi internazionali e nei principali documenti dell'UE.</p>
             </div>
-            <div class="grid-item rectangle">
-                <h3>L'integrazione europea</h3>
-                <p> L'integrazione europea come modello di pace e pacificazione secondo i principi della giustizia sociale</p>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e8eaf6;">
+                    <i class="ti ti-flag" aria-hidden="true" style="color:#3949ab;"></i>
+                </div>
+                <h4>L'integrazione europea</h4>
+                <p>L'integrazione europea come modello di pace e pacificazione secondo i principi della giustizia sociale.</p>
             </div>
-            <div class="grid-item rectangle">
-                <h3>il ruolo della scuola</h3>
-                <p>il ruolo della scuola nella costruzione di una visuone condivisa circa la risoluzione pacifica dei conflitti internazionali</p>
-            </div>           
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e8eaf6;">
+                    <i class="ti ti-school" aria-hidden="true" style="color:#3949ab;"></i>
+                </div>
+                <h4>Il ruolo della scuola</h4>
+                <p>Il ruolo della scuola nella costruzione di una visione condivisa circa la risoluzione pacifica dei conflitti internazionali.</p>
+            </div>
         </div>
-    </section>
-    <div class="section-divider"></div>
 
-    
-    <section class="content-section">
-        <h2 class="section-title">Inglese (4 ore)</h2>
-        <div class="grid-container">
-            <div class="grid-item square">
-                <h3>Jobs, poverty, innovation, knowledge, technology and A.I.</h3>
+        <!-- INGLESE -->
+        <p class="mat-group-label">Inglese — 4 ore</p>
+        <div class="mat-icon-grid">
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e3f2fd;">
+                    <i class="ti ti-robot" aria-hidden="true" style="color:#1565c0;"></i>
+                </div>
+                <h4>Jobs, poverty & A.I.</h4>
                 <p>The impact of technological innovation and artificial intelligence on employment, poverty, and social inequalities in the context of globalization.</p>
-            </div> 
-        </div>       
-      
-    </section>
-    <div class="section-divider"></div>
-
-   
-    <section class="content-section">
-        <h2 class="section-title">Scienze motorie (4 ore)</h2>
-        <div class="grid-container">
-            <div class="grid-item square">
-                <h3>La tecnologia al servizio dello sport</h3>
-                <p>Analisi dei cambiamenti apportati dalla tecnologia nel mondo dello sportivo. strumenti per la rivelazione e la misurazione delle prestazioni sportive.</p>
-            </div>            
+            </div>
         </div>
-    </section>
-    <div class="section-divider"></div>
-    <section class="content-section">
 
-        <h2 class="section-title">Storia (8 ore)</h2>
-        <div class="grid-container">
-            <div class="grid-item rectangle">
-                <h3>Propaganda e controllo dell'informazione nel novecento</h3>
-                <p>L'uso della propaganda come strumento di controllo sociale e politico durante il XX secolo, con esempi storici come i regimi totalitari.</p>
-            </div>            
-            <div class="grid-item square">
-                <h3>Censura e libertà di stampa</h3>
-                <p>Il concetto di censura e la lotta per la libertà di espressione, con riferimento alla storia e ai diritti umani.</p>  
-          </div>            
-            <div class="grid-item rectangle">
-                <h3>Dai dati cartacei e al clout: evoluzione della gestione delle informazioni</h3>
+        <!-- SCIENZE MOTORIE -->
+        <p class="mat-group-label">Scienze Motorie — 4 ore</p>
+        <div class="mat-icon-grid">
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e8f5e9;">
+                    <i class="ti ti-activity" aria-hidden="true" style="color:#2e7d32;"></i>
+                </div>
+                <h4>La tecnologia nello sport</h4>
+                <p>Analisi dei cambiamenti apportati dalla tecnologia nel mondo dello sport e strumenti per la rilevazione e misurazione delle prestazioni sportive.</p>
+            </div>
+        </div>
+
+        <!-- STORIA -->
+        <p class="mat-group-label">Storia — 8 ore</p>
+        <div class="mat-icon-grid">
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#fce4ec;">
+                    <i class="ti ti-speakerphone" aria-hidden="true" style="color:#c62828;"></i>
+                </div>
+                <h4>Propaganda e controllo</h4>
+                <p>L'uso della propaganda come strumento di controllo sociale e politico durante il XX secolo, con esempi dei regimi totalitari.</p>
+            </div>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#fce4ec;">
+                    <i class="ti ti-news" aria-hidden="true" style="color:#c62828;"></i>
+                </div>
+                <h4>Censura e libertà di stampa</h4>
+                <p>Il concetto di censura e la lotta per la libertà di espressione, con riferimento alla storia e ai diritti umani.</p>
+            </div>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#fce4ec;">
+                    <i class="ti ti-cloud" aria-hidden="true" style="color:#c62828;"></i>
+                </div>
+                <h4>Dai dati cartacei al cloud</h4>
                 <p>La transizione dalla gestione tradizionale delle informazioni alla rivoluzione digitale, dall'archiviazione cartacea al cloud computing.</p>
-            </div>            
+            </div>
         </div>
-        
-    </section>
-     <div class="section-divider"></div>
-    <section class="content-section">
-        <h2 class="section-title">Italiano (5 ore)</h2>
-        <div class="grid-container">
-            <div class="grid-item square">
-                <h3>Lessico e registi della comunicazione in rete</h3>
+
+        <!-- ITALIANO -->
+        <p class="mat-group-label">Italiano — 5 ore</p>
+        <div class="mat-icon-grid">
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#fff8e1;">
+                    <i class="ti ti-message-circle" aria-hidden="true" style="color:#f57f17;"></i>
+                </div>
+                <h4>Lessico e registri della rete</h4>
                 <p>Il linguaggio specifico della comunicazione online e i principali attori che influenzano l'opinione pubblica in rete.</p>
-            </div>            
-            <div class="grid-item rectangle">
-                <h3>Scrittura argomentativa e netiquette</h3>
+            </div>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#fff8e1;">
+                    <i class="ti ti-pencil" aria-hidden="true" style="color:#f57f17;"></i>
+                </div>
+                <h4>Scrittura e netiquette</h4>
                 <p>Tecniche di scrittura persuasiva e regole di comportamento etico nella comunicazione digitale.</p>
-            </div>            
-        </div>         
-    </section>
-    <div class="section-divider"></div>
-  
-    <section class="content-section">
-        <h2 class="section-title">GPOI (4 ore)</h2>
-        <div class="grid-container">
-            <div class="grid-item square">
-                <h3>Sicurezza e privacy come requisiti organizzativi</h3>
+            </div>
+        </div>
+
+        <!-- GPOI -->
+        <p class="mat-group-label">GPOI — 4 ore</p>
+        <div class="mat-icon-grid">
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#f3e5f5;">
+                    <i class="ti ti-lock" aria-hidden="true" style="color:#6a1b9a;"></i>
+                </div>
+                <h4>Sicurezza e privacy</h4>
                 <p>L'importanza della sicurezza informatica e della protezione della privacy nei processi aziendali e organizzativi.</p>
-            </div>            
-            <div class="grid-item rectangle">
-                <h3>Gestione del rischio e impatti dei data breach</h3>
-                <p>Strategie per identificare e mitigare i rischi informatici, con focus sugli effetti delle violazioni dei dati.</p>
-            </div>            
-            <div class="grid-item rectangle">
-                <h3>Normative sulla privacy e protezione dei dati (GDPR)</h3>
+            </div>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#f3e5f5;">
+                    <i class="ti ti-shield-exclamation" aria-hidden="true" style="color:#6a1b9a;"></i>
+                </div>
+                <h4>Gestione del rischio</h4>
+                <p>Strategie per identificare e mitigare i rischi informatici, con focus sugli effetti delle violazioni dei dati (data breach).</p>
+            </div>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#f3e5f5;">
+                    <i class="ti ti-file-certificate" aria-hidden="true" style="color:#6a1b9a;"></i>
+                </div>
+                <h4>GDPR e protezione dati</h4>
                 <p>Il Regolamento Generale sulla Protezione dei Dati (GDPR) e le sue implicazioni per la privacy individuale e aziendale.</p>
-            </div>            
-        </div>         
-    </section>
-    <div class="section-divider"></div>
-     <section class="content-section">
-        <h2 class="section-title">Sistemi e reti (4 ore)</h2>
-        <div class="grid-container">
-            <div class="grid-item square">
-                <h3>Principi  di cybersicurezza (triade CIA)</h3>
-                <p>I fondamenti della sicurezza informatica: Confidenzialità, Integrità e Disponibilità (CIA triad).</p>
-            </div>            
-            <div class="grid-item rectangle">
-                <h3>Autenticazione crittografica, firewall/proxy</h3>            
+            </div>
+        </div>
+
+        <!-- SISTEMI E RETI -->
+        <p class="mat-group-label">Sistemi e Reti — 4 ore</p>
+        <div class="mat-icon-grid">
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e0f7fa;">
+                    <i class="ti ti-shield-check" aria-hidden="true" style="color:#00695c;"></i>
+                </div>
+                <h4>Principi di cybersicurezza</h4>
+                <p>I fondamenti della sicurezza informatica: Confidenzialità, Integrità e Disponibilità (triade CIA).</p>
+            </div>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e0f7fa;">
+                    <i class="ti ti-key" aria-hidden="true" style="color:#00695c;"></i>
+                </div>
+                <h4>Autenticazione e firewall</h4>
                 <p>Metodi di autenticazione sicura e strumenti di protezione come firewall e proxy per la sicurezza delle reti.</p>
-            </div>            
-            <div class="grid-item square">
-                <h3>Minacce comuni (phishing, malware) e contromisure</h3>
+            </div>
+            <div class="mat-icon-card edu-card">
+                <div class="mat-icon-wrap" style="background:#e0f7fa;">
+                    <i class="ti ti-bug" aria-hidden="true" style="color:#00695c;"></i>
+                </div>
+                <h4>Minacce e contromisure</h4>
                 <p>Principali minacce informatiche come phishing e malware, e le misure preventive per contrastarle.</p>
-            </div>            
-        </div>         
+            </div>
+        </div>
+
     </section>
-    <div class="section-divider"></div>
 
-
+    <!-- FOOTER -->
     <section class="site-footer">
         <div class="footer-section">
             <h3>Contatti</h3>
@@ -160,17 +192,18 @@
         </div>
         <div class="footer-section">
             <h3>Link Utili</h3>
-            <a href="home.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="PresentazioneP.html">Biografia</a>
-            <a href="DescrizionePCTO.html">PCTO</a>
             <a href="Materie.html">Materie Scolastiche</a>
             <a href="EduCivica.html">Educazione Civica</a>
+            <a href="Certificazioni.html">Certificazioni</a>
         </div>
         <div class="footer-section">
             <h3>Informazioni</h3>
             <p>Sito creato per presentare il mio percorso scolastico e professionale presso l'Istituto Marconi Pieralisi.</p>
         </div>
     </section>
- 
+
+    <script src="Js/script.js"></script>
 </body>
 </html>
