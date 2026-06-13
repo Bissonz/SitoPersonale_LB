@@ -852,3 +852,15 @@ body {
     margin: 0;
     text-shadow: none;
 }
+/* ============================
+   EDU CIVICA — card con testo esteso
+============================ */
+.edu-card {
+    align-items: flex-start;
+}
+
+.edu-card p {
+    font-size: 0.82em;
+    line-height: 1.6;
+    opacity: 0.85;
+}
