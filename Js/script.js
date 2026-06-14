@@ -21,17 +21,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let index = 0;
     const title = document.getElementById('welcome-title');
 
-    if (title) {
-        function changeTitle() {
-            title.classList.add('welcome-fade');
-            setTimeout(() => {
-                index = (index + 1) % messages.length;
-                title.textContent = messages[index];
-                title.classList.remove('welcome-fade');
-            }, 500);
-        }
-        setInterval(changeTitle, 2500);
+    function changeTitle() {
+        title.classList.add('welcome-fade');
+        setTimeout(() => {
+            index = (index + 1) % messages.length;
+            title.textContent = messages[index];
+            title.classList.remove('welcome-fade');
+        }, 600);
     }
+
+    setInterval(changeTitle, 2500);
 
     // ==============================
     // WIDGET FLOTTANTE — highlight sezione attiva
@@ -55,25 +54,24 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (floatLinks.length > 0) {
-        window.addEventListener('scroll', updateActiveLink, { passive: true });
-        updateActiveLink();
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
 
-        floatLinks.forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.getElementById(link.dataset.section);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+    // Scroll fluido per i link del widget
+    floatLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.getElementById(link.dataset.section);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
-    }
+    });
 
 });
 
 // ==============================
-// ACCORDION BIOGRAFIA (vecchio stile, se ancora usato)
+// ACCORDION BIOGRAFIA
 // ==============================
 function toggleAcc(id) {
     const item = document.getElementById(id);
@@ -81,7 +79,7 @@ function toggleAcc(id) {
 }
 
 // ==============================
-// EXPAND / COLLAPSE CARD (index.html — sezione materie home e PCTO)
+// EXPAND / COLLAPSE CARD (Materie e PCTO)
 // ==============================
 function toggleCard(btn) {
     const card = btn.closest('.grid-item');
@@ -152,19 +150,18 @@ function openBioPanel(key, btn) {
 }
 
 // ==============================
-// MATERIE — accordion argomenti (Materie.html, classi .mat-*)
+// MENU HAMBURGER MOBILE
 // ==============================
-function toggleMatCard(id, btn) {
-    const card = document.getElementById(id);
-    const isOpen = card.classList.toggle('mat-open');
-
-    // Rimuove i nodi di testo esistenti tra le icone
-    Array.from(btn.childNodes).forEach(n => {
-        if (n.nodeType === Node.TEXT_NODE) n.remove();
-    });
-
-    // Reinserisce il testo corretto prima della freccia
-    const arrow = btn.querySelector('i.arrow');
-    const textNode = document.createTextNode(isOpen ? ' Nascondi argomenti ' : ' Argomenti svolti ');
-    btn.insertBefore(textNode, arrow);
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
 }
+
+// Chiudi menu cliccando fuori
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.querySelector('.navbar-toggler-custom');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('open');
+    }
+});
