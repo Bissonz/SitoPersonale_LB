@@ -168,3 +168,17 @@ document.addEventListener('click', function(e) {
         menu.classList.remove('open');
     }
 });
+function toggleMatCard(id, btn) {
+    const card = document.getElementById(id);
+    const topics = card.querySelector('.mat-topics');
+    const arrow = btn.querySelector('.arrow');
+
+    // Toggle classe
+    const isOpen = card.classList.toggle('mat-open');
+
+    // Ruota freccia
+    if (arrow) {
+        arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+}
+
