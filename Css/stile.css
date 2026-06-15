@@ -794,21 +794,28 @@ body {
     filter: brightness(0.7);
 }
 
-  /* BIOGRAFIA — rettangoli */
-    .presentazione-container {
-        margin: 88px auto 32px auto;
-        padding: 0 16px;
-        gap: 24px;
-    }
-    .rect {
-        flex-direction: column;
-        padding: 20px;
-        gap: 16px;
-    }
-    .rect img {
-        width: 100%;
-        height: 200px;
-    }
+.presentazione-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 100px auto 60px auto;
+    padding: 0 24px;
+}
+
+.rect {
+    background: rgba(255,255,255,0.22);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(183,214,255,0.4);
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
 .rect:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.25);
@@ -1124,4 +1131,24 @@ body {
     .welcome-box h2 { font-size: 1.8em; }
     .mat-icon-grid { grid-template-columns: 1fr; }
     .quick-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================
+   MATERIE.HTML — responsive
+============================ */
+@media (max-width: 768px) {
+    .mat-main {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .mat-img-col {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .mat-img, .mat-img-placeholder {
+        width: 100%;
+        height: 140px;
+    }
+    .materie-grid { gap: 14px; }
+    .mat-card { padding: 16px; }
 }
