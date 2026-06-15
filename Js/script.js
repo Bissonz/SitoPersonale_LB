@@ -2,21 +2,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ==============================
     // TITOLO WELCOME — rotazione lingue
-    // ==============================
-    const messages = [
-        "नमस्ते!",
-        "Hello!",
-        "مرحبا!",
-        "¡Hola!",
-        "こんにちは！",
-        "Bonjour!",
-        "안녕하세요!",
-        "Привет!",
-        "היי!",
-        "Здравейте!",
-        "Ciao!",
-        "你好！"
-    ];
+   const welcomeMessages = [
+    "Benvenuto!",            // Italiano
+    "Welcome!",              // Inglese
+    "¡Bienvenido!",          // Spagnolo
+    "Bienvenue!",            // Francese
+    "Willkommen!",           // Tedesco
+    "Добро пожаловать!",     // Russo
+    "أهلاً وسهلاً!",        // Arabo
+    "ようこそ！",             // Giapponese
+    "환영합니다!",            // Coreano
+    "欢迎！",                 // Cinese (Mandarino)
+    "Bem-vindo!",            // Portoghese
+    "Välkommen!",            // Svedese
+    "Καλώς ήρθες!",          // Greco
+    "Welkom!",               // Olandese
+    "Witamy!",               // Polacco
+];
+
 
     let index = 0;
     const title = document.getElementById('welcome-title');
