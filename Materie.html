@@ -13,18 +13,14 @@
     <!-- BANNER / NAV -->
     <nav class="banner">
         <div class="banner-title">Il Mio Sito</div>
-
-        <!-- HAMBURGER mobile -->
         <button class="navbar-toggler-custom d-md-none" onclick="toggleMobileMenu()">
             <i class="ti ti-menu-2"></i>
         </button>
-
-        <!-- LINKS desktop -->
-        <div class="banner-links d-none d-md-flex" id="desktop-links">
+        <div class="banner-links d-none d-md-flex">
             <a href="index.html"><i class="ti ti-home"></i> Home</a>
             <a href="PresentazioneP.html"><i class="ti ti-user"></i> Biografia</a>
             <a href="Materie.html"><i class="ti ti-book"></i> Materie Scolastiche</a>
-            <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione civica</a>
+            <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione Civica</a>
             <a href="Certificazioni.html"><i class="ti ti-certificate"></i> Certificazioni</a>
         </div>
     </nav>
@@ -34,23 +30,20 @@
         <a href="index.html"><i class="ti ti-home"></i> Home</a>
         <a href="PresentazioneP.html"><i class="ti ti-user"></i> Biografia</a>
         <a href="Materie.html"><i class="ti ti-book"></i> Materie Scolastiche</a>
-        <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione civica</a>
+        <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione Civica</a>
         <a href="Certificazioni.html"><i class="ti ti-certificate"></i> Certificazioni</a>
     </div>
 
     <!-- VIDEO DI SFONDO -->
-    <video autoplay muted loop id="bg-video">
+    <video autoplay muted loop playsinline id="bg-video">
         <source src="../Immagini/macchina2.mp4" type="video/mp4">
     </video>
 
-    <!-- ==============================
-         SEZIONE: MATERIE DI INDIRIZZO
-    ============================== -->
+    <!-- MATERIE DI INDIRIZZO -->
     <section class="content-section" style="padding-top: 90px;">
         <h2 class="section-title">Materie di Indirizzo</h2>
         <div class="materie-grid">
 
-            <!-- Informatica -->
             <div class="mat-card" id="mc-informatica">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -60,28 +53,20 @@
                     <div class="mat-img-col">
                         <img src="img/informatica.jpg" alt="Informatica" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-device-laptop"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-device-laptop"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-informatica', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Sviluppo web – HTML, CSS, JavaScript</li>
-                        <li>Es. Basi di dati relazionali e SQL</li>
-                        <li>Es. Programmazione orientata agli oggetti</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Sviluppo web – HTML, CSS, JavaScript</li>
+                    <li>Es. Basi di dati relazionali e SQL</li>
+                    <li>Es. Programmazione orientata agli oggetti</li>
+                </ul></div>
             </div>
 
-            <!-- Sistemi e Reti -->
             <div class="mat-card" id="mc-sistemi">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -91,28 +76,20 @@
                     <div class="mat-img-col">
                         <img src="img/sistemi.jpg" alt="Sistemi e Reti" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-network"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-network"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-sistemi', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Modello OSI e TCP/IP</li>
-                        <li>Es. Indirizzamento IP e subnetting</li>
-                        <li>Es. Protocolli applicativi (HTTP, FTP, DNS…)</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Modello OSI e TCP/IP</li>
+                    <li>Es. Indirizzamento IP e subnetting</li>
+                    <li>Es. Protocolli applicativi (HTTP, FTP, DNS…)</li>
+                </ul></div>
             </div>
 
-            <!-- Telecomunicazioni -->
             <div class="mat-card" id="mc-tlc">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -122,28 +99,20 @@
                     <div class="mat-img-col">
                         <img src="img/telecomunicazioni.jpg" alt="Telecomunicazioni" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-antenna"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-antenna"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-tlc', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Segnali analogici e digitali</li>
-                        <li>Es. Modulazione AM/FM</li>
-                        <li>Es. Trasmissione dati e fibra ottica</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Segnali analogici e digitali</li>
+                    <li>Es. Modulazione AM/FM</li>
+                    <li>Es. Trasmissione dati e fibra ottica</li>
+                </ul></div>
             </div>
 
-            <!-- Intelligenza Artificiale -->
             <div class="mat-card" id="mc-ai">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -153,28 +122,20 @@
                     <div class="mat-img-col">
                         <img src="img/ai.jpg" alt="Intelligenza Artificiale" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-brain"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-brain"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-ai', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Reti neurali e deep learning</li>
-                        <li>Es. Supervised vs unsupervised learning</li>
-                        <li>Es. Applicazioni pratiche dell'AI</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Reti neurali e deep learning</li>
+                    <li>Es. Supervised vs unsupervised learning</li>
+                    <li>Es. Applicazioni pratiche dell'AI</li>
+                </ul></div>
             </div>
 
-            <!-- TPSIT -->
             <div class="mat-card" id="mc-tpsit">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -184,39 +145,29 @@
                     <div class="mat-img-col">
                         <img src="img/tpsit.jpg" alt="TPSIT" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-cpu"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-cpu"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-tpsit', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Thread e processi in Java</li>
-                        <li>Es. Semafori e mutex</li>
-                        <li>Es. Comunicazione tra processi (IPC)</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Thread e processi in Java</li>
+                    <li>Es. Semafori e mutex</li>
+                    <li>Es. Comunicazione tra processi (IPC)</li>
+                </ul></div>
             </div>
 
         </div>
     </section>
     <div class="section-divider"></div>
 
-    <!-- ==============================
-         SEZIONE: MATERIE TECNICHE
-    ============================== -->
+    <!-- MATERIE TECNICHE -->
     <section class="content-section">
         <h2 class="section-title">Materie Tecniche</h2>
         <div class="materie-grid">
 
-            <!-- Matematica -->
             <div class="mat-card" id="mc-matematica">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -226,28 +177,20 @@
                     <div class="mat-img-col">
                         <img src="img/matematica.jpg" alt="Matematica" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-math"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-math"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-matematica', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Limiti e continuità</li>
-                        <li>Es. Derivate e applicazioni</li>
-                        <li>Es. Integrali definiti e indefiniti</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Limiti e continuità</li>
+                    <li>Es. Derivate e applicazioni</li>
+                    <li>Es. Integrali definiti e indefiniti</li>
+                </ul></div>
             </div>
 
-            <!-- GPOI -->
             <div class="mat-card" id="mc-gpoi">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -257,39 +200,29 @@
                     <div class="mat-img-col">
                         <img src="img/gpoi.jpg" alt="GPOI" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-briefcase"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-briefcase"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-gpoi', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Project management e metodologie agili</li>
-                        <li>Es. Organizzazione aziendale</li>
-                        <li>Es. Qualità e certificazioni ISO</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Project management e metodologie agili</li>
+                    <li>Es. Organizzazione aziendale</li>
+                    <li>Es. Qualità e certificazioni ISO</li>
+                </ul></div>
             </div>
 
         </div>
     </section>
     <div class="section-divider"></div>
 
-    <!-- ==============================
-         SEZIONE: MATERIE UMANISTICHE
-    ============================== -->
+    <!-- MATERIE UMANISTICHE -->
     <section class="content-section">
         <h2 class="section-title">Materie Umanistiche</h2>
         <div class="materie-grid">
 
-            <!-- Italiano -->
             <div class="mat-card" id="mc-italiano">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -299,33 +232,25 @@
                     <div class="mat-img-col">
                         <img src="img/italiano.jpg" alt="Italiano" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-book"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-book"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-italiano', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Positivismo e Naturalismo – E. Zola</li>
-                        <li>Verismo – G. Verga</li>
-                        <li>Decadentismo – O. Wilde, G. D'Annunzio</li>
-                        <li>Crepuscolarismo – G. Gozano</li>
-                        <li>Simbolismo e Pascolismo – G. Pascoli</li>
-                        <li>Futurismo</li>
-                        <li>L. Pirandello – teatro e romanzi</li>
-                        <li>I. Svevo – la coscienza di Zeno</li>
-                        <li>Ermetismo – G. Ungaretti</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Positivismo e Naturalismo – E. Zola</li>
+                    <li>Verismo – G. Verga</li>
+                    <li>Decadentismo – O. Wilde, G. D'Annunzio</li>
+                    <li>Crepuscolarismo – G. Gozano</li>
+                    <li>Simbolismo e Pascolismo – G. Pascoli</li>
+                    <li>Futurismo</li>
+                    <li>L. Pirandello – teatro e romanzi</li>
+                    <li>I. Svevo – la coscienza di Zeno</li>
+                    <li>Ermetismo – G. Ungaretti</li>
+                </ul></div>
             </div>
 
-            <!-- Storia -->
             <div class="mat-card" id="mc-storia">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -335,35 +260,27 @@
                     <div class="mat-img-col">
                         <img src="img/storia.jpg" alt="Storia" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-world"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-world"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-storia', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Risorgimento d'Italia</li>
-                        <li>I problemi dell'Italia unita</li>
-                        <li>La Belle Époque</li>
-                        <li>L'Europa verso la guerra</li>
-                        <li>La Prima Guerra Mondiale</li>
-                        <li>La crisi del 1929</li>
-                        <li>Il Fascismo</li>
-                        <li>Il Nazismo</li>
-                        <li>La Seconda Guerra Mondiale</li>
-                        <li>La Resistenza partigiana</li>
-                        <li>La Guerra Fredda</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Risorgimento d'Italia</li>
+                    <li>I problemi dell'Italia unita</li>
+                    <li>La Belle Époque</li>
+                    <li>L'Europa verso la guerra</li>
+                    <li>La Prima Guerra Mondiale</li>
+                    <li>La crisi del 1929</li>
+                    <li>Il Fascismo</li>
+                    <li>Il Nazismo</li>
+                    <li>La Seconda Guerra Mondiale</li>
+                    <li>La Resistenza partigiana</li>
+                    <li>La Guerra Fredda</li>
+                </ul></div>
             </div>
 
-            <!-- Inglese -->
             <div class="mat-card" id="mc-inglese">
                 <div class="mat-main">
                     <div class="mat-text">
@@ -373,25 +290,18 @@
                     <div class="mat-img-col">
                         <img src="img/inglese.jpg" alt="Inglese" class="mat-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;">
-                            <i class="ti ti-language"></i>
-                            <span>Immagine</span>
-                        </div>
+                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-language"></i><span>Immagine</span></div>
                     </div>
                 </div>
                 <button class="mat-expand-btn" onclick="toggleMatCard('mc-inglese', this)">
-                    <i class="ti ti-list-details"></i>
-                    Argomenti svolti
-                    <i class="ti ti-chevron-down arrow"></i>
+                    <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics">
-                    <ul>
-                        <li>Aggiungi qui gli argomenti svolti</li>
-                        <li>Es. Letteratura tecnica in inglese</li>
-                        <li>Es. Business English</li>
-                        <li>Es. Listening e comprensione autentica</li>
-                    </ul>
-                </div>
+                <div class="mat-topics"><ul>
+                    <li>Aggiungi qui gli argomenti svolti</li>
+                    <li>Es. Letteratura tecnica in inglese</li>
+                    <li>Es. Business English</li>
+                    <li>Es. Listening e comprensione autentica</li>
+                </ul></div>
             </div>
 
         </div>
