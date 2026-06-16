@@ -607,6 +607,127 @@ body {
 }
 
 /* ============================
+   BIOGRAFIA — card contenitore
+============================ */
+.bio-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bio-top-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.bio-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.bio-photo {
+    width: 150px; height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #b7d6ff;
+}
+
+.bio-photo-placeholder {
+    width: 150px; height: 180px;
+    border-radius: 12px;
+    border: 2px dashed #b7d6ff;
+    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; color: #5aa0ff;
+}
+
+.bio-photo-placeholder i { font-size: 30px; }
+.bio-photo-placeholder span { font-size: 0.72em; font-weight: 600; text-align: center; }
+
+.bio-center {
+    border-left: 2px solid #b7d6ff;
+    padding-left: 24px;
+}
+
+.bio-center h3 {
+    color: #2b78ff; font-size: 1.2em; font-weight: 700;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #2b78ff;
+    padding-bottom: 8px;
+}
+
+.bio-center p {
+    color: #1a2f4d; font-size: 0.97em;
+    line-height: 1.75; margin: 0 0 20px 0;
+}
+
+/* ============================
+   FSL — card contenitore + layout
+============================ */
+.fsl-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.fsl-top-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.fsl-photo {
+    width: 150px; height: 150px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #b7d6ff;
+}
+
+.fsl-photo-placeholder {
+    width: 150px; height: 150px;
+    border-radius: 12px;
+    border: 2px dashed #b7d6ff;
+    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; color: #5aa0ff;
+}
+
+.fsl-photo-placeholder i { font-size: 28px; }
+.fsl-photo-placeholder span { font-size: 0.7em; font-weight: 600; text-align: center; }
+
+.fsl-text-block h3 {
+    color: #2b78ff; font-size: 1.15em; font-weight: 700;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #2b78ff;
+    padding-bottom: 8px;
+}
+
+.fsl-text-block p { color: #1a2f4d; font-size: 0.97em; line-height: 1.75; margin: 0; }
+
+.fsl-divider { border: none; border-top: 1px solid #b7d6ff; margin: 0; }
+
+/* ============================
    FSL — 3 pulsanti + pannello
 ============================ */
 .fsl-btn-row {
@@ -810,6 +931,15 @@ body {
     /* Float nav */
     .float-nav { display: none !important; }
 
+    /* Bio */
+    .bio-top-row { grid-template-columns: 1fr; gap: 16px; }
+    .bio-center  { border-left: none; border-top: 2px solid #b7d6ff; padding: 16px 0 0 0; }
+    .bio-photo, .bio-photo-placeholder { width: 100px; height: 120px; }
+
+    /* FSL */
+    .fsl-top-row { grid-template-columns: 1fr; gap: 12px; }
+    .fsl-photo, .fsl-photo-placeholder { width: 100%; height: 160px; }
+
     /* Footer */
     .site-footer { gap: 32px; padding: 24px 16px; }
 }
@@ -817,5 +947,26 @@ body {
 @media (max-width: 480px) {
     .welcome-box h2 { font-size: 1.8em; }
     .icon-grid { grid-template-columns: 1fr; }
-    .quick-grid { grid-template-columns: repeat(3, 1fr); }
+    .quick-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================
+   ALIAS COMPATIBILITÀ
+   Vecchi tag usati in index.html
+   puntano alle nuove classi
+============================ */
+.mat-icon-grid  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 900px; margin: 0 auto; }
+.mat-icon-card  { background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%); border: 1px solid #b7d6ff; border-radius: 12px; padding: 16px 14px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+.mat-icon-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(43,120,255,0.15); border-color: #2b78ff; }
+.mat-icon-wrap  { width: 40px; height: 40px; border-radius: 10px; background: #e7f2ff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mat-icon-wrap i { font-size: 20px; color: #2b78ff; }
+.mat-icon-card h4 { color: #0f1f33; font-size: 0.95em; font-weight: 700; margin: 0; }
+.mat-icon-card p  { color: #1a2f4d; font-size: 0.8em; margin: 0; line-height: 1.5; opacity: 0.8; }
+.mat-group-label  { font-size: 0.85em; font-weight: 700; color: #1a3d7c; text-transform: uppercase; letter-spacing: 1.5px; margin: 28px 0 12px 4px; padding-left: 10px; border-left: 3px solid #2b78ff; }
+
+@media (max-width: 768px) {
+    .mat-icon-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+@media (max-width: 480px) {
+    .mat-icon-grid { grid-template-columns: 1fr; }
 }
