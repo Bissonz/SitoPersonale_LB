@@ -970,3 +970,22 @@ body {
 @media (max-width: 480px) {
     .mat-icon-grid { grid-template-columns: 1fr; }
 }
+.cert-group-label {
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #1a3d7c;
+    letter-spacing: 1px;
+}
+
+.cert-group-desc {
+    text-align: center;
+    margin-top: -8px;
+    margin-bottom: 24px;
+    color: #1a2f4d;
+    opacity: 0.85;
+    font-size: 0.95em;
+}
