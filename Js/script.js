@@ -2,87 +2,87 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ==============================
     // TITOLO WELCOME — rotazione lingue
-   const welcomeMessages = [
-    "Benvenuto!",            // Italiano
-    "Welcome!",              // Inglese
-    "¡Bienvenido!",          // Spagnolo
-    "Bienvenue!",            // Francese
-    "Willkommen!",           // Tedesco
-    "Добро пожаловать!",     // Russo
-    "أهلاً وسهلاً!",        // Arabo
-    "ようこそ！",             // Giapponese
-    "환영합니다!",            // Coreano
-    "欢迎！",                 // Cinese (Mandarino)
-    "Bem-vindo!",            // Portoghese
-    "Välkommen!",            // Svedese
-    "Καλώς ήρθες!",          // Greco
-    "Welkom!",               // Olandese
-    "Witamy!",               // Polacco
-];
-
+    // ==============================
+    const messages = [
+        "Benvenuto!",           // Italiano
+        "Welcome!",             // Inglese
+        "¡Bienvenido!",         // Spagnolo
+        "Bienvenue!",           // Francese
+        "Willkommen!",          // Tedesco
+        "Добро пожаловать!",    // Russo
+        "أهلاً وسهلاً!",       // Arabo
+        "ようこそ！",            // Giapponese
+        "환영합니다!",           // Coreano
+        "欢迎！",                // Cinese
+        "Bem-vindo!",           // Portoghese
+        "Välkommen!",           // Svedese
+        "Καλώς ήρθες!",         // Greco
+        "Welkom!",              // Olandese
+        "Witamy!",              // Polacco
+    ];
 
     let index = 0;
     const title = document.getElementById('welcome-title');
 
-    function changeTitle() {
-        title.classList.add('welcome-fade');
-        setTimeout(() => {
-            index = (index + 1) % messages.length;
-            title.textContent = messages[index];
-            title.classList.remove('welcome-fade');
-        }, 600);
+    if (title) {
+        function changeTitle() {
+            title.classList.add('welcome-fade');
+            setTimeout(() => {
+                index = (index + 1) % messages.length;
+                title.textContent = messages[index];
+                title.classList.remove('welcome-fade');
+            }, 600);
+        }
+        setInterval(changeTitle, 2500);
     }
 
-    setInterval(changeTitle, 2500);
-
     // ==============================
-    // WIDGET FLOTTANTE — highlight sezione attiva
+    // WIDGET FLOTTANTE — sezione attiva
     // ==============================
-    const sections = ['sezione-biografia', 'sezione-materie', 'sezione-fsl'];
     const floatLinks = document.querySelectorAll('.float-link');
 
-    function updateActiveLink() {
-        let current = '';
-        sections.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-                const rect = el.getBoundingClientRect();
-                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                    current = id;
+    if (floatLinks.length > 0) {
+        const sectionIds = Array.from(floatLinks).map(l => l.dataset.section);
+
+        function updateActiveLink() {
+            let current = '';
+            sectionIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        current = id;
+                    }
                 }
-            }
-        });
+            });
+            floatLinks.forEach(link => {
+                link.classList.toggle('active', link.dataset.section === current);
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink, { passive: true });
+        updateActiveLink();
+
         floatLinks.forEach(link => {
-            link.classList.toggle('active', link.dataset.section === current);
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.getElementById(link.dataset.section);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
         });
     }
-
-    window.addEventListener('scroll', updateActiveLink, { passive: true });
-    updateActiveLink();
-
-    // Scroll fluido per i link del widget
-    floatLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.getElementById(link.dataset.section);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
 
 });
 
 // ==============================
-// ACCORDION BIOGRAFIA
+// ACCORDION BIOGRAFIA (index.html)
 // ==============================
 function toggleAcc(id) {
-    const item = document.getElementById(id);
-    item.classList.toggle('open');
+    document.getElementById(id).classList.toggle('open');
 }
 
 // ==============================
-// EXPAND / COLLAPSE CARD (Materie e PCTO)
+// EXPAND CARD (grid-item, index.html)
 // ==============================
 function toggleCard(btn) {
     const card = btn.closest('.grid-item');
@@ -93,19 +93,40 @@ function toggleCard(btn) {
 }
 
 // ==============================
-// FSL — pannello unico
+// CARD-BLOCK TOGGLE — usata ovunque
+// (Materie, FSL dettaglio, Bio, ecc.)
+// ==============================
+function toggleBlock(id, btn) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.toggle('open');
+
+    // Rimuove nodi di testo esistenti
+    Array.from(btn.childNodes).forEach(n => {
+        if (n.nodeType === Node.TEXT_NODE) n.remove();
+    });
+
+    // Reinserisce testo corretto
+    const arrow = btn.querySelector('i.arrow');
+    btn.insertBefore(
+        document.createTextNode(isOpen ? ' Nascondi ' : ' Argomenti svolti '),
+        arrow
+    );
+}
+
+// ==============================
+// FSL — pannello unico (index.html)
 // ==============================
 const fslContents = {
-    competenze: "Ho rafforzato comunicazione professionale, documentazione del codice, code review e collaborazione tramite Git in un team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.",
-    progetti: "Ho sviluppato un modulo per la reportistica automatizzata e partecipato alla progettazione di un pannello di amministrazione interno, dalla wireframe al codice finale.",
+    competenze:  "Ho rafforzato comunicazione professionale, documentazione del codice, code review e collaborazione tramite Git in un team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.",
+    progetti:    "Ho sviluppato un modulo per la reportistica automatizzata e partecipato alla progettazione di un pannello di amministrazione interno, dalla wireframe al codice finale.",
     riflessioni: "Il PCTO mi ha mostrato quanto sia diverso il lavoro reale dalla teoria scolastica. Ho capito l'importanza del team e della comunicazione. È stata la conferma che voglio lavorare nel settore IT."
 };
 
 let currentFsl = null;
 
 function openFslPanel(key, btn) {
-    const panel = document.getElementById('fsl-panel');
-    const text = document.getElementById('fsl-panel-text');
+    const panel   = document.getElementById('fsl-panel');
+    const text    = document.getElementById('fsl-panel-text');
     const allBtns = document.querySelectorAll('.fsl-btn');
 
     if (currentFsl === key) {
@@ -123,19 +144,19 @@ function openFslPanel(key, btn) {
 }
 
 // ==============================
-// BIOGRAFIA — pannello unico stile FSL
+// BIOGRAFIA — pannello unico (index.html)
 // ==============================
 const bioContents = {
-    percorso: "Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Ho acquisito basi solide in programmazione, reti e sistemi, partecipando a progetti scolastici e PCTO.",
+    percorso:  "Frequento l'Istituto Marconi Pieralisi, indirizzo Informatica e Telecomunicazioni. Ho acquisito basi solide in programmazione, reti e sistemi, partecipando a progetti scolastici e PCTO.",
     obiettivi: "Continuare gli studi in ingegneria del software o AI, contribuire a progetti open source e lavorare in un'azienda tech innovativa dove crescere professionalmente.",
-    hobby: "Programmazione per hobby, musica, escursioni in natura, videogiochi e cinema. Seguo le ultime novità in ambito tech e AI."
+    hobby:     "Programmazione per hobby, musica, escursioni in natura, videogiochi e cinema. Seguo le ultime novità in ambito tech e AI."
 };
 
 let currentBio = null;
 
 function openBioPanel(key, btn) {
-    const panel = document.getElementById('bio-panel');
-    const text = document.getElementById('bio-panel-text');
+    const panel   = document.getElementById('bio-panel');
+    const text    = document.getElementById('bio-panel-text');
     const allBtns = document.querySelectorAll('.bio-btn-col .fsl-btn');
 
     if (currentBio === key) {
@@ -156,29 +177,14 @@ function openBioPanel(key, btn) {
 // MENU HAMBURGER MOBILE
 // ==============================
 function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('open');
+    document.getElementById('mobile-menu').classList.toggle('open');
 }
 
 // Chiudi menu cliccando fuori
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     const menu = document.getElementById('mobile-menu');
-    const btn = document.querySelector('.navbar-toggler-custom');
+    const btn  = document.querySelector('.navbar-toggler-custom');
     if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
         menu.classList.remove('open');
     }
 });
-function toggleMatCard(id, btn) {
-    const card = document.getElementById(id);
-    const topics = card.querySelector('.mat-topics');
-    const arrow = btn.querySelector('.arrow');
-
-    // Toggle classe
-    const isOpen = card.classList.toggle('mat-open');
-
-    // Ruota freccia
-    if (arrow) {
-        arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    }
-}
-
