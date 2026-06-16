@@ -3,29 +3,25 @@
 <head>
     <title>Materie Scolastiche – Il Mio Sito</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link rel="stylesheet" href="Css/stile.css">
 </head>
 <body>
 
-    <!-- BANNER / NAV -->
-    <nav class="banner">
+    <div class="banner">
         <div class="banner-title">Il Mio Sito</div>
-        <button class="navbar-toggler-custom d-md-none" onclick="toggleMobileMenu()">
-            <i class="ti ti-menu-2"></i>
-        </button>
-        <div class="banner-links d-none d-md-flex">
+        <div class="banner-links">
             <a href="index.html"><i class="ti ti-home"></i> Home</a>
             <a href="PresentazioneP.html"><i class="ti ti-user"></i> Biografia</a>
             <a href="Materie.html"><i class="ti ti-book"></i> Materie Scolastiche</a>
             <a href="EduCivica.html"><i class="ti ti-scale"></i> Educazione Civica</a>
             <a href="Certificazioni.html"><i class="ti ti-certificate"></i> Certificazioni</a>
         </div>
-    </nav>
+        <button class="navbar-toggler-custom" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+            <i class="ti ti-menu-2"></i>
+        </button>
+    </div>
 
-    <!-- MENU MOBILE -->
     <div class="mobile-menu" id="mobile-menu">
         <a href="index.html"><i class="ti ti-home"></i> Home</a>
         <a href="PresentazioneP.html"><i class="ti ti-user"></i> Biografia</a>
@@ -34,129 +30,148 @@
         <a href="Certificazioni.html"><i class="ti ti-certificate"></i> Certificazioni</a>
     </div>
 
-    <!-- VIDEO DI SFONDO -->
-    <video autoplay muted loop playsinline id="bg-video">
+    <video autoplay muted loop id="bg-video">
         <source src="../Immagini/macchina2.mp4" type="video/mp4">
     </video>
 
     <!-- MATERIE DI INDIRIZZO -->
     <section class="content-section" style="padding-top: 90px;">
         <h2 class="section-title">Materie di Indirizzo</h2>
-        <div class="materie-grid">
+        <div class="cards-col">
 
-            <div class="mat-card" id="mc-informatica">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-informatica">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Informatica</h3>
                         <p>Informatica è la base dell'indirizzo: spiega come comunicare e ragionare con una macchina. Quest'anno è stata particolarmente interessante — abbiamo affrontato argomenti che ci circondano ogni giorno, come lo sviluppo web, le basi di dati e molto altro.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/informatica.jpg" alt="Informatica" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/informatica.jpg" alt="Informatica" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-device-laptop"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-device-laptop"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-informatica', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-informatica', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Sviluppo web – HTML, CSS, JavaScript</li>
-                    <li>Es. Basi di dati relazionali e SQL</li>
-                    <li>Es. Programmazione orientata agli oggetti</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Sviluppo web – HTML, CSS, JavaScript</li>
+                        <li>Es. Basi di dati relazionali e SQL</li>
+                        <li>Es. Programmazione orientata agli oggetti</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mat-card" id="mc-sistemi">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-sistemi">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Sistemi e Reti</h3>
                         <p>Una materia con alti e bassi: è molto interessante capire come le macchine comunicano e si organizzano, ma ricordare tutti i protocolli richiede un impegno costante. Una sfida che però mi ha dato soddisfazione superare.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/sistemi.jpg" alt="Sistemi e Reti" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/sistemi.jpg" alt="Sistemi e Reti" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-network"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-network"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-sistemi', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-sistemi', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Modello OSI e TCP/IP</li>
-                    <li>Es. Indirizzamento IP e subnetting</li>
-                    <li>Es. Protocolli applicativi (HTTP, FTP, DNS…)</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Modello OSI e TCP/IP</li>
+                        <li>Es. Indirizzamento IP e subnetting</li>
+                        <li>Es. Protocolli applicativi (HTTP, FTP, DNS…)</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mat-card" id="mc-tlc">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-tlc">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Telecomunicazioni</h3>
                         <p>Una materia con un grande potenziale: studiare come funzionano i circuiti e come si combinano tra loro è stato affascinante. A volte le formule e i concetti teorici erano impegnativi, ma hanno gettato basi solide.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/telecomunicazioni.jpg" alt="Telecomunicazioni" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/telecomunicazioni.jpg" alt="Telecomunicazioni" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-antenna"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-antenna"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-tlc', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-tlc', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Segnali analogici e digitali</li>
-                    <li>Es. Modulazione AM/FM</li>
-                    <li>Es. Trasmissione dati e fibra ottica</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Segnali analogici e digitali</li>
+                        <li>Es. Modulazione AM/FM</li>
+                        <li>Es. Trasmissione dati e fibra ottica</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mat-card" id="mc-ai">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-ai">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Intelligenza Artificiale</h3>
                         <p>Una materia che mi incuriosisce moltissimo — peccato sia solo per un anno con un'ora settimanale. Capire come un'AI ragiona, decide e viene addestrata è stato illuminante e ha alimentato la mia voglia di approfondire il settore.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/ai.jpg" alt="Intelligenza Artificiale" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/ai.jpg" alt="Intelligenza Artificiale" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-brain"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-brain"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-ai', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-ai', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Reti neurali e deep learning</li>
-                    <li>Es. Supervised vs unsupervised learning</li>
-                    <li>Es. Applicazioni pratiche dell'AI</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Reti neurali e deep learning</li>
+                        <li>Es. Supervised vs unsupervised learning</li>
+                        <li>Es. Applicazioni pratiche dell'AI</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mat-card" id="mc-tpsit">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-tpsit">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>TPSIT</h3>
                         <p>Una materia a metà strada tra Sistemi e Reti e Informatica. In quinta ci si concentra su programmazione multithread, gestione dei processi e sincronizzazione — concetti fondamentali per capire come i software moderni sfruttano le risorse di sistema.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/tpsit.jpg" alt="TPSIT" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/tpsit.jpg" alt="TPSIT" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-cpu"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-cpu"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-tpsit', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-tpsit', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Thread e processi in Java</li>
-                    <li>Es. Semafori e mutex</li>
-                    <li>Es. Comunicazione tra processi (IPC)</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Thread e processi in Java</li>
+                        <li>Es. Semafori e mutex</li>
+                        <li>Es. Comunicazione tra processi (IPC)</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -166,52 +181,60 @@
     <!-- MATERIE TECNICHE -->
     <section class="content-section">
         <h2 class="section-title">Materie Tecniche</h2>
-        <div class="materie-grid">
+        <div class="cards-col">
 
-            <div class="mat-card" id="mc-matematica">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-matematica">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Matematica</h3>
                         <p>Una materia che si complica progressivamente: la difficoltà principale per me è vedere gli argomenti come concetti astratti invece che procedure meccaniche. Con impegno però riesco sempre a venirne a capo.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/matematica.jpg" alt="Matematica" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/matematica.jpg" alt="Matematica" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-math"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-math"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-matematica', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-matematica', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Limiti e continuità</li>
-                    <li>Es. Derivate e applicazioni</li>
-                    <li>Es. Integrali definiti e indefiniti</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Limiti e continuità</li>
+                        <li>Es. Derivate e applicazioni</li>
+                        <li>Es. Integrali definiti e indefiniti</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mat-card" id="mc-gpoi">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-gpoi">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>GPOI</h3>
                         <p>Una materia solo del quinto anno, che ricorda diritto ed economia ma con concetti più applicati e logici. È giusto che faccia parte del programma: le nozioni di gestione e organizzazione aziendale sono fondamentali per chi vuole lavorare nel settore IT.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/gpoi.jpg" alt="GPOI" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/gpoi.jpg" alt="GPOI" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-briefcase"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-briefcase"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-gpoi', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-gpoi', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Project management e metodologie agili</li>
-                    <li>Es. Organizzazione aziendale</li>
-                    <li>Es. Qualità e certificazioni ISO</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Project management e metodologie agili</li>
+                        <li>Es. Organizzazione aziendale</li>
+                        <li>Es. Qualità e certificazioni ISO</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -221,94 +244,105 @@
     <!-- MATERIE UMANISTICHE -->
     <section class="content-section">
         <h2 class="section-title">Materie Umanistiche</h2>
-        <div class="materie-grid">
+        <div class="cards-col">
 
-            <div class="mat-card" id="mc-italiano">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-italiano">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Italiano</h3>
                         <p>Un viaggio attraverso i grandi movimenti letterari e i loro autori: dal Positivismo e Naturalismo fino al Decadentismo, Futurismo ed Ermetismo. Autori come Verga, D'Annunzio, Pirandello e Svevo mi hanno aiutato a capire come la letteratura rispecchi la società.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/italiano.jpg" alt="Italiano" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/italiano.jpg" alt="Italiano" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-book"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-book"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-italiano', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-italiano', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Positivismo e Naturalismo – E. Zola</li>
-                    <li>Verismo – G. Verga</li>
-                    <li>Decadentismo – O. Wilde, G. D'Annunzio</li>
-                    <li>Crepuscolarismo – G. Gozano</li>
-                    <li>Simbolismo e Pascolismo – G. Pascoli</li>
-                    <li>Futurismo</li>
-                    <li>L. Pirandello – teatro e romanzi</li>
-                    <li>I. Svevo – la coscienza di Zeno</li>
-                    <li>Ermetismo – G. Ungaretti</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Positivismo e Naturalismo – E. Zola</li>
+                        <li>Verismo – G. Verga</li>
+                        <li>Decadentismo – O. Wilde, G. D'Annunzio</li>
+                        <li>Crepuscolarismo – G. Gozano</li>
+                        <li>Simbolismo e Pascolismo – G. Pascoli</li>
+                        <li>Futurismo</li>
+                        <li>L. Pirandello – teatro e romanzi</li>
+                        <li>I. Svevo – la coscienza di Zeno</li>
+                        <li>Ermetismo – G. Ungaretti</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mat-card" id="mc-storia">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-storia">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Storia</h3>
                         <p>Un percorso che va dal Risorgimento italiano fino alla Guerra Fredda, passando per i due conflitti mondiali e i totalitarismi del Novecento. Capire questi eventi mi aiuta a leggere meglio il mondo attuale.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/storia.jpg" alt="Storia" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/storia.jpg" alt="Storia" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-world"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-world"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-storia', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-storia', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Risorgimento d'Italia</li>
-                    <li>I problemi dell'Italia unita</li>
-                    <li>La Belle Époque</li>
-                    <li>L'Europa verso la guerra</li>
-                    <li>La Prima Guerra Mondiale</li>
-                    <li>La crisi del 1929</li>
-                    <li>Il Fascismo</li>
-                    <li>Il Nazismo</li>
-                    <li>La Seconda Guerra Mondiale</li>
-                    <li>La Resistenza partigiana</li>
-                    <li>La Guerra Fredda</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Risorgimento d'Italia</li>
+                        <li>I problemi dell'Italia unita</li>
+                        <li>La Belle Époque</li>
+                        <li>L'Europa verso la guerra</li>
+                        <li>La Prima Guerra Mondiale</li>
+                        <li>La crisi del 1929</li>
+                        <li>Il Fascismo</li>
+                        <li>Il Nazismo</li>
+                        <li>La Seconda Guerra Mondiale</li>
+                        <li>La Resistenza partigiana</li>
+                        <li>La Guerra Fredda</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mat-card" id="mc-inglese">
-                <div class="mat-main">
-                    <div class="mat-text">
+            <div class="card-block" id="cb-inglese">
+                <div class="card-block-main">
+                    <div class="card-block-text">
                         <h3>Inglese</h3>
                         <p>L'inglese mi piace molto: seguo documentari e contenuti interamente in questa lingua ogni giorno. La considero una competenza fondamentale per aprirsi molte porte nel mondo del lavoro tech e non solo.</p>
                     </div>
-                    <div class="mat-img-col">
-                        <img src="img/inglese.jpg" alt="Inglese" class="mat-img"
+                    <div class="card-block-img-col">
+                        <img src="img/inglese.jpg" alt="Inglese" class="card-block-img"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="mat-img-placeholder" style="display:none;"><i class="ti ti-language"></i><span>Immagine</span></div>
+                        <div class="card-block-img-placeholder" style="display:none;">
+                            <i class="ti ti-language"></i><span>Immagine</span>
+                        </div>
                     </div>
                 </div>
-                <button class="mat-expand-btn" onclick="toggleMatCard('mc-inglese', this)">
+                <button class="card-block-toggle" onclick="toggleBlock('cb-inglese', this)">
                     <i class="ti ti-list-details"></i> Argomenti svolti <i class="ti ti-chevron-down arrow"></i>
                 </button>
-                <div class="mat-topics"><ul>
-                    <li>Aggiungi qui gli argomenti svolti</li>
-                    <li>Es. Letteratura tecnica in inglese</li>
-                    <li>Es. Business English</li>
-                    <li>Es. Listening e comprensione autentica</li>
-                </ul></div>
+                <div class="card-block-body">
+                    <ul>
+                        <li>Aggiungi gli argomenti svolti</li>
+                        <li>Es. Letteratura tecnica in inglese</li>
+                        <li>Es. Business English</li>
+                        <li>Es. Listening e comprensione autentica</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
     </section>
     <div class="section-divider"></div>
 
-    <!-- FOOTER -->
     <section class="site-footer">
         <div class="footer-section">
             <h3>Contatti</h3>
@@ -329,7 +363,6 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="Js/script.js"></script>
 </body>
 </html>
