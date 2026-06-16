@@ -17,8 +17,7 @@ body {
 ============================ */
 .banner {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 100%;
     height: 64px;
     background: linear-gradient(90deg, #2b78ff 0%, #5aa0ff 40%, #8cc6ff 100%);
@@ -68,6 +67,48 @@ body {
     border-color: rgba(255,255,255,0.6);
 }
 
+/* HAMBURGER MOBILE */
+.navbar-toggler-custom {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.6em;
+    padding: 4px 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #2b78ff 0%, #5aa0ff 100%);
+    flex-direction: column;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 8px 0;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    transition: background 0.2s;
+}
+
+.mobile-menu a:hover { background: rgba(255,255,255,0.15); }
+.mobile-menu a i { font-size: 1.2em; }
+
 /* ============================
    VIDEO DI SFONDO
 ============================ */
@@ -79,6 +120,11 @@ body {
     z-index: -1;
     object-fit: cover;
     filter: brightness(0.9);
+}
+
+/* variante scura (PresentazioneP) */
+.bg-video-dark {
+    filter: brightness(0.55);
 }
 
 /* ============================
@@ -105,15 +151,9 @@ body {
     text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
 }
 
-.welcome-box p {
-    font-size: 1.8em;
-    color: #1a2f4d;
-}
+.welcome-box p { font-size: 1.8em; color: #1a2f4d; }
 
-.welcome-fade {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
+.welcome-fade { opacity: 0; transition: opacity 0.5s ease; }
 
 /* PULSANTI RAPIDI WELCOME */
 .quick-grid {
@@ -177,7 +217,6 @@ body {
     backdrop-filter: blur(6px);
     text-decoration: none;
     color: #1a2f4d;
-    font-family: "Segoe UI", Arial, sans-serif;
     font-size: 0.7em;
     font-weight: 600;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
@@ -217,6 +256,8 @@ body {
     padding: 40px 20px;
     margin: 20px auto;
     max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .section-title {
@@ -238,7 +279,231 @@ body {
 }
 
 /* ============================
-   GRID CARD ESPANDIBILI
+   CARD UNIVERSALE
+   Usata ovunque: materie, bio,
+   certificazioni, FSL, PCTO
+============================ */
+.card-block {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+/* Riga principale: testo | immagine */
+.card-block-main {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 20px;
+    align-items: start;
+}
+
+/* Versione senza immagine */
+.card-block-main.no-img {
+    grid-template-columns: 1fr;
+}
+
+/* Testo */
+.card-block-text h3 {
+    color: #2b78ff;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #2b78ff;
+    padding-bottom: 8px;
+}
+
+.card-block-text p {
+    color: #1a2f4d;
+    font-size: 0.97em;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Colonna immagine */
+.card-block-img-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-block-img {
+    width: 140px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1.5px solid #b7d6ff;
+    display: block;
+}
+
+.card-block-img-placeholder {
+    width: 140px;
+    height: 120px;
+    border-radius: 10px;
+    border: 2px dashed #b7d6ff;
+    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #5aa0ff;
+}
+
+.card-block-img-placeholder i { font-size: 26px; }
+.card-block-img-placeholder span { font-size: 0.65em; font-weight: 600; text-align: center; }
+
+/* Pulsante espandi (argomenti / dettagli) */
+.card-block-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.87em;
+    font-weight: 700;
+    color: #2b78ff;
+    transition: color 0.2s;
+}
+
+.card-block-toggle:hover { color: #1a5fd4; }
+.card-block-toggle i.arrow { font-size: 1em; transition: transform 0.3s; }
+.card-block.open .card-block-toggle i.arrow { transform: rotate(180deg); }
+
+/* Corpo espandibile */
+.card-block-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.card-block.open .card-block-body { max-height: 600px; }
+
+.card-block-body ul {
+    margin: 0;
+    padding: 12px 16px 14px 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(207,228,255,0.7) 100%);
+    border: 1px solid #d0e8ff;
+    border-radius: 10px;
+    list-style: none;
+}
+
+.card-block-body ul li {
+    color: #1a2f4d;
+    font-size: 0.93em;
+    line-height: 1.75;
+    padding: 2px 0 2px 16px;
+    position: relative;
+}
+
+.card-block-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 11px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #2b78ff;
+}
+
+/* Testo libero nel corpo espandibile */
+.card-block-body p {
+    color: #1a2f4d;
+    font-size: 0.95em;
+    line-height: 1.7;
+    margin: 0;
+    padding: 12px 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(207,228,255,0.7) 100%);
+    border: 1px solid #d0e8ff;
+    border-radius: 10px;
+}
+
+/* ============================
+   GRIGLIA CARD (colonna singola)
+   Usata in Materie.html, FSL, ecc.
+============================ */
+.cards-col {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* ============================
+   GRIGLIA CARD A ICONA
+   Usata in index (anteprima materie)
+   e in EduCivica
+============================ */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.icon-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%);
+    border: 1px solid #b7d6ff;
+    border-radius: 12px;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.icon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(43,120,255,0.15);
+    border-color: #2b78ff;
+}
+
+.icon-wrap {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: #e7f2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon-wrap i { font-size: 20px; color: #2b78ff; }
+
+.icon-card h4 { color: #0f1f33; font-size: 0.95em; font-weight: 700; margin: 0; }
+.icon-card p  { color: #1a2f4d; font-size: 0.8em; margin: 0; line-height: 1.5; opacity: 0.8; }
+
+/* Etichetta gruppo sopra la griglia */
+.group-label {
+    font-size: 0.85em;
+    font-weight: 700;
+    color: #1a3d7c;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 28px 0 12px 4px;
+    padding-left: 10px;
+    border-left: 3px solid #2b78ff;
+}
+
+/* ============================
+   GRID CARD ESPANDIBILI (index)
+   Le 4 card anteprima materie
 ============================ */
 .grid-container {
     display: grid;
@@ -257,8 +522,6 @@ body {
     color: #0f1f33;
     border: 1px solid #b7d6ff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    position: relative;
-    cursor: pointer;
     min-height: 160px;
     display: flex;
     flex-direction: column;
@@ -280,14 +543,7 @@ body {
 }
 
 .grid-item p { font-size: 1.1em; color: #1a2f4d; }
-
-.grid-item .short-text {
-    display: block;
-    font-size: 1.05em;
-    color: #1a2f4d;
-    transition: opacity 0.2s;
-}
-
+.grid-item .short-text { display: block; font-size: 1.05em; color: #1a2f4d; }
 .grid-item .long-text {
     display: none;
     font-size: 1.05em;
@@ -303,7 +559,6 @@ body {
 .expand-btn {
     margin-top: auto;
     padding-top: 14px;
-    padding-left: 0;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -326,14 +581,8 @@ body {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================
-   BOTTONE SCOPRI DI PIÙ
-============================ */
-.discover-more {
-    display: flex;
-    justify-content: center;
-    margin-top: 36px;
-}
+/* BOTTONE SCOPRI DI PIÙ */
+.discover-more { display: flex; justify-content: center; margin-top: 36px; }
 
 .discover-button {
     display: inline-flex;
@@ -344,7 +593,6 @@ body {
     border: 1px solid #2b78ff;
     border-radius: 10px;
     color: #2b78ff;
-    font-family: "Segoe UI", Arial, sans-serif;
     font-weight: 600;
     font-size: 1em;
     text-decoration: none;
@@ -359,135 +607,8 @@ body {
 }
 
 /* ============================
-   PAGINA BIOGRAFIA (PresentazioneP.html)
+   FSL — 3 pulsanti + pannello
 ============================ */
-.bg-video2 {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-    filter: brightness(0.55);
-}
-
-.presentazione-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 110px auto 60px auto;
-    padding: 0 24px;
-}
-
-/* Rettangoli chiari stile Aero */
-.rect {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid #b7d6ff;
-    border-radius: 18px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-    padding: 32px;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.rect:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-}
-
-.rettangolo-right { flex-direction: row; }
-.rettangolo-left { flex-direction: row-reverse; }
-
-.rect-text {
-    flex: 1;
-}
-
-/* Immagini */
-.rect img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 14px;
-    border: 2px solid #b7d6ff;
-    flex-shrink: 0;
-}
-
-/* Testo leggibile */
-.rect-text h2 {
-    color: #1a3d7c;
-    font-size: 1.6em;
-    font-weight: 800;
-    margin: 0 0 14px 0;
-    border-bottom: 2px solid #2b78ff;
-    padding-bottom: 10px;
-}
-
-.rect-text p {
-    color: #0f1f33;
-    font-size: 1em;
-    line-height: 1.75;
-    margin: 0;
-}
-
-
-/* ============================
-   FSL / PCTO
-============================ */
-.fsl-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(231,242,255,0.9) 100%);
-    border: 1px solid #b7d6ff;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.fsl-top-row {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 24px;
-    align-items: start;
-}
-
-.fsl-photo {
-    width: 150px; height: 150px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 2px solid #b7d6ff;
-}
-
-.fsl-photo-placeholder {
-    width: 150px; height: 150px;
-    border-radius: 12px;
-    border: 2px dashed #b7d6ff;
-    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px; color: #5aa0ff;
-}
-
-.fsl-photo-placeholder i { font-size: 28px; }
-.fsl-photo-placeholder span { font-size: 0.7em; font-weight: 600; text-align: center; }
-
-.fsl-text-block h3 {
-    color: #2b78ff; font-size: 1.15em;
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid #2b78ff;
-    padding-bottom: 8px;
-}
-
-.fsl-text-block p { color: #1a2f4d; font-size: 0.97em; line-height: 1.75; margin: 0; }
-
-.fsl-divider { border: none; border-top: 1px solid #b7d6ff; margin: 0; }
-
-/* Pulsanti e pannello unico FSL/Biografia */
 .fsl-btn-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -530,273 +651,8 @@ body {
 .fsl-panel p { color: #1a2f4d; font-size: 0.95em; line-height: 1.7; margin: 0; }
 
 /* ============================
-   CARD STILE AERO
-============================ */
-.card {
-    background: linear-gradient(180deg, #ffffffcc 0%, #e7f2ffcc 100%);
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    border: 1px solid #b7d6ff;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
-.card .description {
-    background: linear-gradient(180deg, #ffffff 0%, #d7eaff 100%);
-    color: #0f1f33;
-    border-radius: 12px;
-}
-
-/* ============================
-   PAGINA MATERIE
-============================ */
-.materie-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    max-width: 860px;
-    margin: 0 auto;
-}
-
-.mat-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(231,242,255,0.9) 100%);
-    border: 1px solid #b7d6ff;
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-    padding: 22px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transition: transform 0.25s, box-shadow 0.25s;
-    max-width: 860px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.mat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-}
-
-.mat-main {
-    display: grid;
-    grid-template-columns: 1fr 140px;
-    gap: 20px;
-    align-items: start;
-}
-
-.mat-text h3 {
-    color: #2b78ff;
-    font-size: 1.2em;
-    margin: 0 0 10px 0;
-    border-bottom: 2px solid #2b78ff;
-    padding-bottom: 8px;
-}
-
-.mat-text p { color: #1a2f4d; font-size: 0.97em; line-height: 1.7; margin: 0 0 14px 0; }
-
-.mat-img {
-    width: 140px; height: 120px;
-    border-radius: 10px;
-    object-fit: cover;
-    border: 1.5px solid #b7d6ff;
-}
-
-.mat-img-col { display: flex; flex-direction: column; align-items: center; }
-
-.mat-img-placeholder {
-    width: 140px; height: 120px;
-    border-radius: 10px;
-    border: 2px dashed #b7d6ff;
-    background: linear-gradient(180deg, #e7f2ff 0%, #cfe4ff 100%);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 6px; color: #5aa0ff;
-}
-
-.mat-img-placeholder i { font-size: 26px; }
-.mat-img-placeholder span { font-size: 0.65em; font-weight: 600; text-align: center; }
-
-.mat-expand-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 0.87em;
-    font-weight: 700;
-    color: #2b78ff;
-    transition: color 0.2s;
-}
-
-.mat-expand-btn:hover { color: #1a5fd4; }
-.mat-expand-btn i { font-size: 1em; transition: transform 0.3s; }
-.mat-card.mat-open .mat-expand-btn i { transform: rotate(180deg); }
-
-.mat-topics {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-}
-
-.mat-card.mat-open .mat-topics { max-height: 600px; }
-
-.mat-topics ul {
-    margin: 0;
-    padding: 12px 16px 14px 28px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(207,228,255,0.7) 100%);
-    border: 1px solid #d0e8ff;
-    border-radius: 10px;
-    list-style: none;
-}
-
-.mat-topics ul li {
-    color: #1a2f4d;
-    font-size: 0.93em;
-    line-height: 1.75;
-    padding: 2px 0 2px 16px;
-    position: relative;
-}
-
-.mat-topics ul li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 11px;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #2b78ff;
-}
-
-/* ============================
-   FOOTER
-============================ */
-.site-footer {
-    width: 100%;
-    background: linear-gradient(90deg, #2b78ff 0%, #5aa0ff 40%, #8cc6ff 100%);
-    color: #fff;
-    padding: 32px 0 24px 0;
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    flex-wrap: wrap;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin-top: auto;
-    border-top: 1px solid #b7d6ff;
-    box-sizing: border-box;
-}
-
-.site-footer h3 { margin: 0 0 10px 0; font-size: 1em; letter-spacing: 0.5px; }
-.site-footer p { margin: 4px 0; font-size: 0.9em; opacity: 0.9; }
-.site-footer a {
-    display: block; color: #fff; text-decoration: none;
-    font-size: 0.9em; margin: 3px 0; opacity: 0.9; transition: opacity 0.2s;
-}
-.site-footer a:hover { opacity: 1; color: #d7eaff; }
-
-/* ============================
-   PDF ICONS
-============================ */
-.certification-files i:hover {
-    color: #2b78ff;
-    transform: scale(1.1);
-}
-
-/* ============================
-   SEZIONE MATERIE — griglia icone
-============================ */
-.mat-group-label {
-    font-size: 0.85em;
-    font-weight: 700;
-    color: #1a3d7c;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin: 28px 0 12px 4px;
-    padding-left: 10px;
-    border-left: 3px solid #2b78ff;
-}
-
-.mat-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.mat-icon-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(231,242,255,0.92) 100%);
-    border: 1px solid #b7d6ff;
-    border-radius: 12px;
-    padding: 16px 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-
-.mat-icon-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(43,120,255,0.15);
-    border-color: #2b78ff;
-}
-
-.mat-icon-wrap {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: #e7f2ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.mat-icon-wrap i { font-size: 20px; color: #2b78ff; }
-
-.mat-icon-card h4 {
-    color: #0f1f33;
-    font-size: 0.95em;
-    font-weight: 700;
-    margin: 0;
-}
-
-.mat-icon-card p {
-    color: #1a2f4d;
-    font-size: 0.8em;
-    margin: 0;
-    line-height: 1.5;
-    opacity: 0.8;
-}
-
-/* ============================
-   EDU CIVICA — card con testo esteso
-============================ */
-.edu-card {
-    align-items: flex-start;
-}
-
-.edu-card p {
-    font-size: 0.82em;
-    line-height: 1.6;
-    opacity: 0.85;
-}
-
-/* ============================
    CERTIFICAZIONI
 ============================ */
-.cert-group-desc {
-    color: #1a2f4d;
-    font-size: 0.88em;
-    margin: -16px 0 16px 4px;
-    opacity: 0.7;
-}
-
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -822,24 +678,13 @@ body {
     border-color: #2b78ff;
 }
 
-.cert-placeholder {
-    border-style: dashed;
-    opacity: 0.6;
-}
+.cert-placeholder { border-style: dashed; opacity: 0.6; }
+.cert-placeholder:hover { opacity: 0.9; }
 
-.cert-placeholder:hover {
-    opacity: 0.9;
-}
-
-.cert-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+.cert-card-top { display: flex; align-items: center; justify-content: space-between; }
 
 .cert-icon-wrap {
-    width: 44px;
-    height: 44px;
+    width: 44px; height: 44px;
     border-radius: 10px;
     background: #e7f2ff;
     display: flex;
@@ -858,30 +703,11 @@ body {
     letter-spacing: 0.5px;
 }
 
-.cert-badge.scolastica {
-    background: #e7f2ff;
-    color: #2b78ff;
-}
+.cert-badge.scolastica { background: #e7f2ff; color: #2b78ff; }
+.cert-badge.extra      { background: #fff3e0; color: #e65100; }
 
-.cert-badge.extra {
-    background: #fff3e0;
-    color: #e65100;
-}
-
-.cert-card h4 {
-    color: #0f1f33;
-    font-size: 1em;
-    font-weight: 700;
-    margin: 0;
-}
-
-.cert-card p {
-    color: #1a2f4d;
-    font-size: 0.83em;
-    line-height: 1.6;
-    margin: 0;
-    flex: 1;
-}
+.cert-card h4 { color: #0f1f33; font-size: 1em; font-weight: 700; margin: 0; }
+.cert-card p  { color: #1a2f4d; font-size: 0.83em; line-height: 1.6; margin: 0; flex: 1; }
 
 .cert-link {
     display: inline-flex;
@@ -900,180 +726,96 @@ body {
     align-self: flex-start;
 }
 
-.cert-link:hover {
-    background: linear-gradient(180deg, #fff 0%, #b7d6ff 100%);
-    transform: translateY(-1px);
-}
-
-.cert-link.disabled {
-    opacity: 0.4;
-    pointer-events: none;
-    border-color: #b7d6ff;
-    color: #5aa0ff;
-}
+.cert-link:hover { background: linear-gradient(180deg, #fff 0%, #b7d6ff 100%); transform: translateY(-1px); }
+.cert-link.disabled { opacity: 0.4; pointer-events: none; border-color: #b7d6ff; color: #5aa0ff; }
 
 /* ============================
-   NAVBAR HAMBURGER MOBILE
+   FOOTER
 ============================ */
-.navbar-toggler-custom {
-    background: none;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1.6em;
-    padding: 4px 10px;
-    cursor: pointer;
-    display: none;
-}
-
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 64px;
-    left: 0;
+.site-footer {
     width: 100%;
-    background: linear-gradient(90deg, #2b78ff 0%, #5aa0ff 100%);
-    flex-direction: column;
-    z-index: 99;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    padding: 8px 0;
-}
-
-.mobile-menu.open { display: flex; }
-
-.mobile-menu a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    background: linear-gradient(90deg, #2b78ff 0%, #5aa0ff 40%, #8cc6ff 100%);
     color: #fff;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: 500;
-    padding: 14px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    transition: background 0.2s;
+    padding: 32px 0 24px 0;
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin-top: auto;
+    border-top: 1px solid #b7d6ff;
+    box-sizing: border-box;
 }
 
-.mobile-menu a:hover { background: rgba(255,255,255,0.15); }
-.mobile-menu a i { font-size: 1.2em; }
+.site-footer h3 { margin: 0 0 10px 0; font-size: 1em; letter-spacing: 0.5px; }
+.site-footer p   { margin: 4px 0; font-size: 0.9em; opacity: 0.9; }
+.site-footer a   { display: block; color: #fff; text-decoration: none; font-size: 0.9em; margin: 3px 0; opacity: 0.9; transition: opacity 0.2s; }
+.site-footer a:hover { opacity: 1; color: #d7eaff; }
 
 /* ============================
-   BIO TOP ROW — layout foto+testo
+   PDF ICONS
 ============================ */
-.bio-top-row {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 28px;
-    align-items: start;
-}
-
-.bio-photo-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.certification-files i:hover { color: #2b78ff; transform: scale(1.1); }
 
 /* ============================
    MEDIA QUERIES — MOBILE
 ============================ */
 @media (max-width: 768px) {
 
-    /* NAVBAR */
     .navbar-toggler-custom { display: block; }
+    .banner-links { display: none; }
     .banner { padding: 0 16px; height: 56px; }
     .banner-title { font-size: 1.2em; }
 
-    /* WELCOME BOX */
-    .welcome-box {
-        margin: 72px 16px 40px 16px;
-        padding: 18px;
-    }
+    .welcome-box { margin: 72px 16px 40px 16px; padding: 18px; }
     .welcome-box h2 { font-size: 2.4em; margin-bottom: 16px; }
-    .welcome-box p { font-size: 1.1em; }
-    .quick-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .welcome-box p  { font-size: 1.1em; }
     .quick-btn { padding: 12px 6px; font-size: 0.8em; }
     .quick-btn i { font-size: 20px; }
 
-    /* SEZIONI */
     .content-section { padding: 24px 12px; margin: 12px auto; }
-    .section-title { font-size: 1.6em; margin-bottom: 24px; }
+    .section-title   { font-size: 1.6em; margin-bottom: 24px; }
+    .section-divider { width: 90%; }
 
-    /* BIOGRAFIA (home) */
-    .bio-card { padding: 16px; gap: 16px; }
-    .bio-top-row {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-    .bio-photo-col { flex-direction: row; gap: 16px; align-items: center; }
-    .bio-photo { width: 90px; height: 110px; }
-    .bio-photo-placeholder { width: 90px; height: 110px; }
-    .bio-center { border-left: none; border-top: 2px solid #b7d6ff; padding: 16px 0 0 0; }
-    .fsl-btn-row { grid-template-columns: 1fr; gap: 8px; }
-    .fsl-btn { padding: 12px; }
-
-    /* FSL */
-    .fsl-card { padding: 16px; gap: 16px; }
-    .fsl-top-row { grid-template-columns: 1fr; gap: 12px; }
-    .fsl-photo, .fsl-photo-placeholder { width: 100%; height: 160px; }
-
-    /* MATERIE GRID (icone home) */
-    .mat-icon-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .mat-icon-card { padding: 12px 10px; }
-    .mat-icon-wrap { width: 34px; height: 34px; }
-    .mat-icon-wrap i { font-size: 16px; }
-    .mat-icon-card h4 { font-size: 0.85em; }
-    .mat-icon-card p { font-size: 0.72em; }
-
-    /* MATERIE.HTML — card argomenti */
-    .mat-main {
+    /* Card universale */
+    .card-block-main {
         grid-template-columns: 1fr;
         gap: 12px;
     }
-    .mat-img-col {
-        flex-direction: row;
-        justify-content: center;
-    }
-    .mat-img, .mat-img-placeholder {
+    .card-block-img, .card-block-img-placeholder {
         width: 100%;
         height: 160px;
     }
-    .materie-grid { gap: 14px; }
-    .mat-card { padding: 16px; }
+    .cards-col { gap: 14px; }
+    .card-block { padding: 16px; }
 
-    /* PAGINA BIOGRAFIA — rettangoli */
-    .presentazione-container {
-        margin: 88px auto 32px auto;
-        padding: 0 16px;
-        gap: 24px;
-    }
-    .rect {
-        flex-direction: column;
-        padding: 20px;
-        gap: 16px;
-    }
-    .rect img {
-        width: 100%;
-        height: 200px;
-    }
+    /* FSL */
+    .fsl-btn-row { grid-template-columns: 1fr; gap: 8px; }
+    .fsl-btn { padding: 12px; }
 
-    /* GRID CARD */
+    /* Icone */
+    .icon-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .icon-card { padding: 12px 10px; }
+    .icon-wrap { width: 34px; height: 34px; }
+    .icon-wrap i { font-size: 16px; }
+    .icon-card h4 { font-size: 0.85em; }
+    .icon-card p  { font-size: 0.72em; }
+
+    /* Grid card home */
     .grid-container { grid-template-columns: 1fr; row-gap: 20px; }
 
-    /* FOOTER */
-    .site-footer { gap: 32px; padding: 24px 16px; }
-
-    /* WIDGET FLOTTANTE — nascosto su mobile */
-    .float-nav { display: none !important; }
-
-    /* CERT GRID */
+    /* Cert */
     .cert-grid { grid-template-columns: 1fr; }
 
-    /* SEZIONE DIVIDER */
-    .section-divider { width: 90%; }
+    /* Float nav */
+    .float-nav { display: none !important; }
+
+    /* Footer */
+    .site-footer { gap: 32px; padding: 24px 16px; }
 }
 
 @media (max-width: 480px) {
     .welcome-box h2 { font-size: 1.8em; }
-    .mat-icon-grid { grid-template-columns: 1fr; }
+    .icon-grid { grid-template-columns: 1fr; }
     .quick-grid { grid-template-columns: repeat(3, 1fr); }
 }
