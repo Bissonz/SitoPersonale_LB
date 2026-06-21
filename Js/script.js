@@ -117,9 +117,9 @@ function toggleBlock(id, btn) {
 // FSL — pannello unico (index.html)
 // ==============================
 const fslContents = {
-    competenze:  "Ho rafforzato comunicazione professionale, documentazione del codice, code review e collaborazione tramite Git in un team reale. Ho anche acquisito autonomia nella risoluzione di problemi tecnici complessi.",
-    progetti:    "Ho sviluppato un modulo per la reportistica automatizzata e partecipato alla progettazione di un pannello di amministrazione interno, dalla wireframe al codice finale.",
-    riflessioni: "Il PCTO mi ha mostrato quanto sia diverso il lavoro reale dalla teoria scolastica. Ho capito l'importanza del team e della comunicazione. È stata la conferma che voglio lavorare nel settore IT."
+    competenze:  "Ho migliorato il lavoro in team, la comunicazione con i referenti aziendali e le competenze tecniche legate alla realizzazione di siti web.",
+    progetti:    "Ho collaborato alla progettazione e allo sviluppo del sito aziendale, occupandomi della struttura, della grafica e dell’inserimento dei contenuti.",
+    riflessioni: "L’esperienza mi ha aiutato a crescere professionalmente, a capire l’importanza della collaborazione e a lavorare con maggiore sicurezza su progetti concreti."
 };
 
 let currentFsl = null;
