@@ -962,7 +962,7 @@ body {
 .mat-icon-wrap i { font-size: 20px; color: #2b78ff; }
 .mat-icon-card h4 { color: #0f1f33; font-size: 0.95em; font-weight: 700; margin: 0; }
 .mat-icon-card p  { color: #1a2f4d; font-size: 0.8em; margin: 0; line-height: 1.5; opacity: 0.8; }
-.mat-group-label  { font-size: 0.85em; font-weight: 700; color: #1a3d7c; text-transform: uppercase; letter-spacing: 1.5px; margin: 28px 0 12px 4px; padding-left: 16px; border-left: 3px solid #2b78ff; }
+.mat-group-label  { font-size: 0.85em; font-weight: 700; color: #1a3d7c; text-transform: uppercase; letter-spacing: 1.5px; margin: 28px 0 12px 4px; padding-left: 10px; border-left: 3px solid #2b78ff; }
 
 @media (max-width: 768px) {
     .mat-icon-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
