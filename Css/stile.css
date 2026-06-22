@@ -339,12 +339,13 @@ body {
 
 .card-block-img {
     width: 140px;
-    height: 120px;
-    border-radius: 10px;
+    height: 140px; /* QUADRATA */
     object-fit: cover;
+    border-radius: 12px;
     border: 1.5px solid #b7d6ff;
     display: block;
 }
+
 
 .card-block-img-placeholder {
     width: 140px;
