@@ -696,6 +696,7 @@ body {
     align-items: start;
 }
 
+
 .fsl-photo {
     width: 150px; height: 150px;
     border-radius: 12px;
@@ -704,6 +705,7 @@ body {
 }
 
 .fsl-photo-placeholder {
+   display: none;
     width: 150px; height: 150px;
     border-radius: 12px;
     border: 2px dashed #b7d6ff;
