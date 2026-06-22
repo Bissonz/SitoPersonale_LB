@@ -197,41 +197,60 @@
 
     <!-- SEZIONE FSL -->
     <section class="content-section" id="sezione-fsl">
-        <h2 class="section-title">FSL</h2>
-        <div class="fsl-card">
-            <div class="fsl-top-row">
-               <img src="Immagini/ABlogo.jpg" alt="Foto azienda" class="fsl-photo"
-                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <h2 class="section-title">FSL</h2>
 
-                <div class="fsl-photo-placeholder" style="">
+    <div class="fsl-card">
+        <div class="fsl-top-row">
+
+            <!-- COLONNA FOTO -->
+            <div class="fsl-photo-col">
+                <img src="Immagini/ABlogo.jpg" alt="Foto azienda" class="fsl-photo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                <div class="fsl-photo-placeholder">
                     <i class="ti ti-photo"></i>
                     <span>Foto azienda</span>
                 </div>
-                <div class="fsl-text-block">
-                    <h3>Esperienza in Azienda</h3>
-                    <p>Ho svolto l’alternanza scuola lavoro presso l’azienda A.B. s.r.l., operante nel settore tessile, dove ho sviluppato e realizzato il loro sito aziendale insieme a un mio compagno di classe. Questa esperienza mi ha permesso di conoscere da vicino l’organizzazione aziendale e di lavorare su un progetto reale.</p>
-                </div>
             </div>
-            <hr class="fsl-divider">
-            <div class="fsl-btn-row">
-                <button class="fsl-btn" onclick="openFslPanel('competenze', this)">
-                    <div class="fsl-btn-left"><i class="ti ti-brain"></i><span>Competenze</span></div>
-                    <i class="ti ti-chevron-down fsl-btn-arrow"></i>
-                </button>
-                <button class="fsl-btn" onclick="openFslPanel('progetti', this)">
-                    <div class="fsl-btn-left"><i class="ti ti-code"></i><span>Progetti</span></div>
-                    <i class="ti ti-chevron-down fsl-btn-arrow"></i>
-                </button>
-                <button class="fsl-btn" onclick="openFslPanel('riflessioni', this)">
-                    <div class="fsl-btn-left"><i class="ti ti-messages"></i><span>Riflessioni</span></div>
-                    <i class="ti ti-chevron-down fsl-btn-arrow"></i>
-                </button>
+
+            <!-- COLONNA TESTO -->
+            <div class="fsl-text-block">
+                <h3>Esperienza in Azienda</h3>
+                <p>
+                    Ho svolto l’alternanza scuola lavoro presso l’azienda A.B. s.r.l., operante nel settore tessile,
+                    dove ho sviluppato e realizzato il loro sito aziendale insieme a un mio compagno di classe.
+                    Questa esperienza mi ha permesso di conoscere da vicino l’organizzazione aziendale e di lavorare
+                    su un progetto reale.
+                </p>
             </div>
-            <div class="fsl-panel" id="fsl-panel">
-                <p id="fsl-panel-text"></p>
-            </div>
+
         </div>
-    </section>
+
+        <hr class="fsl-divider">
+
+        <div class="fsl-btn-row">
+            <button class="fsl-btn" onclick="openFslPanel('competenze', this)">
+                <div class="fsl-btn-left"><i class="ti ti-brain"></i><span>Competenze</span></div>
+                <i class="ti ti-chevron-down fsl-btn-arrow"></i>
+            </button>
+
+            <button class="fsl-btn" onclick="openFslPanel('progetti', this)">
+                <div class="fsl-btn-left"><i class="ti ti-code"></i><span>Progetti</span></div>
+                <i class="ti ti-chevron-down fsl-btn-arrow"></i>
+            </button>
+
+            <button class="fsl-btn" onclick="openFslPanel('riflessioni', this)">
+                <div class="fsl-btn-left"><i class="ti ti-messages"></i><span>Riflessioni</span></div>
+                <i class="ti ti-chevron-down fsl-btn-arrow"></i>
+            </button>
+        </div>
+
+        <div class="fsl-panel" id="fsl-panel">
+            <p id="fsl-panel-text"></p>
+        </div>
+    </div>
+</section>
+
     <div class="section-divider"></div>
 
     <!-- FOOTER -->
