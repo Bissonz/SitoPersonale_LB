@@ -630,12 +630,15 @@ body {
     align-items: start;
 }
 
-.bio-photo-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+.bio-photo-col img {
+    max-width: 150px;
+    max-height: 180px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
+
 
 .bio-photo {
     width: 150px; height: 180px;
@@ -653,6 +656,13 @@ body {
     align-items: center; justify-content: center;
     gap: 8px; color: #5aa0ff;
 }
+@media (max-width: 768px) {
+    .bio-photo {
+        width: 100px !important;
+        height: 120px !important;
+    }
+}
+
 
 .bio-photo-placeholder i { font-size: 30px; }
 .bio-photo-placeholder span { font-size: 0.72em; font-weight: 600; text-align: center; }
